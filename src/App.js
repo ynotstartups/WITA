@@ -20,7 +20,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 const SEARCH_ARTISTS = query => {
   return gql`
     {
-      search(query: "${query}", entities: [ARTIST], first: 5) {
+      search(query: "${query}", entities: [ARTIST], first: 20) {
         edges {
           node {
             displayLabel
@@ -29,6 +29,7 @@ const SEARCH_ARTISTS = query => {
             ... on Artist {
               href
               name
+              bio
               artworks(page: 1) {
                 displayLabel
                 images {
@@ -70,7 +71,7 @@ const App = ({ onDogSelected }) => {
             <Grid container spacing={32}>
 
               {data.search.edges.map(({ node }) => {
-                const { displayLabel, imageUrl, href } = node;
+                const { displayLabel, imageUrl, href, bio } = node;
                 return (
                   <Grid item xs={12} sm={6} md={3} lg={2} justify="space-evenly"
                   >
@@ -85,9 +86,8 @@ const App = ({ onDogSelected }) => {
                           {displayLabel}
                         </Typography>
                         <Typography component="p">
-                          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                          across all continents except Antarctica
-                    </Typography>
+                          {bio}
+                        </Typography>
                       </CardContent>
                       <CardActions>
                         <Button size="small" color="primary" onClick={() => { window.open(`https://www.artsy.net${href}`) }} >
