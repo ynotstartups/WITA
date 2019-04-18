@@ -7,7 +7,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import useDebouncedCallback from "use-debounce/lib/callback";
-import InputBase from "@material-ui/core/InputBase";
+import Button from "@material-ui/core/Button";
+import Input from "@material-ui/core/Input";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import SearchIcon from "@material-ui/icons/Search";
 import ArtistCard from "./Components/ArtistCard/ArtistCard";
@@ -60,15 +61,11 @@ const SEARCH_ARTISTS = query => {
 };
 
 const App = ({ classes, searchQuery, changeSearchQuery }) => {
-  // const [query, setQuery] = useState(searchQuery);
-  const [debouncedCallback] = useDebouncedCallback(
-    // function
-    query => {
-      changeSearchQuery(query);
-    },
-    // delay in ms
-    500
-  );
+  const [query, setQuery] = useState("Tiger");
+  const handleSearchSubmit = event => {
+    event.preventDefault();
+    changeSearchQuery(query);
+  };
 
   return (
     <>
@@ -83,23 +80,33 @@ const App = ({ classes, searchQuery, changeSearchQuery }) => {
             WITA
           </Typography>
           <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              onChange={e => {
-                debouncedCallback(e.target.value);
-              }}
-            />
+            <form onSubmit={handleSearchSubmit}>
+              <div className={classes.searchFrom}>
+                <Input
+                  placeholder="Search…"
+                  type="search"
+                  name="query"
+                  value={query}
+                  onChange={event => {
+                    setQuery(event.target.value);
+                  }}
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput
+                  }}
+                  disableUnderline
+                />
+                <Button
+                  className={classes.searchIcon}
+                  color="inherit"
+                  type="submit"
+                >
+                  <SearchIcon />
+                </Button>
+              </div>
+            </form>
           </div>
-          <div className={classes.sectionDesktop}>
-            <SavedArtist />
-          </div>
+          <SavedArtist />
         </Toolbar>
       </AppBar>
       <div style={{ padding: 20 }}>
@@ -144,8 +151,11 @@ const styles = theme => ({
     marginRight: 20
   },
   title: {},
+  searchFrom: {
+    display: "flex",
+    alignItems: "center"
+  },
   search: {
-    position: "relative",
     flex: 1,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -158,28 +168,22 @@ const styles = theme => ({
   searchIcon: {
     width: theme.spacing.unit * 9,
     height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
     display: "flex",
     alignItems: "center",
     justifyContent: "center"
   },
   inputRoot: {
-    color: "inherit",
-    width: "100%"
+    color: "inherit"
   },
   inputInput: {
+    color: "inherit",
     paddingTop: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
     paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 10,
+    paddingLeft: theme.spacing.unit * 3,
     transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: 200
-    }
+    width: "100%"
   },
-  sectionDesktop: {},
   sectionMobile: {
     display: "flex",
     [theme.breakpoints.up("md")]: {
