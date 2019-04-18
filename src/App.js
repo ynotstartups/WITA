@@ -4,19 +4,32 @@ import { Query } from "react-apollo";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { useDebounce } from "use-debounce";
-import IconButton from "@material-ui/core/IconButton";
+import useDebouncedCallback from "use-debounce/lib/callback";
 import InputBase from "@material-ui/core/InputBase";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import SearchIcon from "@material-ui/icons/Search";
-import Star from "@material-ui/icons/Star";
+import ArtistCard from "./Components/ArtistCard/ArtistCard";
+import SavedArtist from "./Components/SavedArtist/SavedArtist";
+import { changeSearchQuery } from "./redux/actions";
+import { connect } from "react-redux";
+
+// redux-persist doesn't work with immer
+// https://github.com/rt2zz/redux-persist/issues/747
+// setAutoFreeze(false);
+
+function mapStateToProps({ searchQuery }) {
+  return {
+    searchQuery: searchQuery
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeSearchQuery: query => dispatch(changeSearchQuery(query))
+  };
+}
 
 const SEARCH_ARTISTS = query => {
   return gql`
@@ -46,11 +59,16 @@ const SEARCH_ARTISTS = query => {
   `;
 };
 
-const App = ({ onDogSelected, classes }) => {
-  const [query, setQuery] = useState("tiger");
-  const [debouncedQuery] = useDebounce(query, 1000);
-
-  window.setQuery = setQuery;
+const App = ({ classes, searchQuery, changeSearchQuery }) => {
+  // const [query, setQuery] = useState(searchQuery);
+  const [debouncedCallback] = useDebouncedCallback(
+    // function
+    query => {
+      changeSearchQuery(query);
+    },
+    // delay in ms
+    500
+  );
 
   return (
     <>
@@ -62,7 +80,7 @@ const App = ({ onDogSelected, classes }) => {
             color="inherit"
             noWrap
           >
-            WITA?
+            WITA
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -75,19 +93,17 @@ const App = ({ onDogSelected, classes }) => {
                 input: classes.inputInput
               }}
               onChange={e => {
-                setQuery(e.target.value);
+                debouncedCallback(e.target.value);
               }}
             />
           </div>
           <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
-              <Star />
-            </IconButton>
+            <SavedArtist />
           </div>
         </Toolbar>
       </AppBar>
       <div style={{ padding: 20 }}>
-        <Query query={SEARCH_ARTISTS(debouncedQuery)}>
+        <Query query={SEARCH_ARTISTS(searchQuery)}>
           {({ loading, error, data }) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
@@ -97,39 +113,7 @@ const App = ({ onDogSelected, classes }) => {
                   const { displayLabel, imageUrl, href, bio } = node;
                   return (
                     <Grid item xs={12} sm={6} md={3} justify="space-evenly">
-                      <Card>
-                        <CardMedia
-                          style={{ height: 150 }}
-                          image={imageUrl}
-                          title={`Art work by ${displayLabel}`}
-                        />
-                        <CardContent>
-                          <Typography gutterBottom variant="h5" component="h2">
-                            {displayLabel}
-                          </Typography>
-                          <Typography component="p">{bio}</Typography>
-                        </CardContent>
-                        <CardActions>
-                          <Button
-                            size="small"
-                            color="primary"
-                            onClick={() => {
-                              window.open(`https://www.artsy.net${href}`);
-                            }}
-                          >
-                            Save
-                          </Button>
-                          <Button
-                            size="small"
-                            color="primary"
-                            onClick={() => {
-                              window.open(`https://www.artsy.net${href}`);
-                            }}
-                          >
-                            Learn More
-                          </Button>
-                        </CardActions>
-                      </Card>
+                      <ArtistCard {...{ displayLabel, imageUrl, href, bio }} />
                     </Grid>
                   );
                 })}
@@ -204,4 +188,7 @@ const styles = theme => ({
   }
 });
 
-export default withStyles(styles)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(App));
