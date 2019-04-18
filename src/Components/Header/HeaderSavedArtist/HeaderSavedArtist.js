@@ -8,7 +8,7 @@ const mapStateToProps = state => {
   return { numberOfSaved: state.savedArtists.length };
 };
 
-const SavedArtist = ({ numberOfSaved }) => (
+const HeaderSavedArtist = ({ numberOfSaved }) => (
   <IconButton color="inherit">
     <Badge badgeContent={numberOfSaved} color="secondary">
       <Favorite />
@@ -16,4 +16,4 @@ const SavedArtist = ({ numberOfSaved }) => (
   </IconButton>
 );
 
-export default connect(mapStateToProps)(SavedArtist);
+export default connect(mapStateToProps)(HeaderSavedArtist);

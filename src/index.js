@@ -4,12 +4,10 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-
-// TODO
-import * as serviceWorker from "./serviceWorker";
-
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+// TODO
+import * as serviceWorker from "./serviceWorker";
 
 const client = new ApolloClient({
   uri: "https://metaphysics-production.artsy.net/"

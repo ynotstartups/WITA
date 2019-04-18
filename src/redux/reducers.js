@@ -34,3 +34,4 @@ const rootReducer = createReducer(initialState, {
 });
 
 export default rootReducer;
+export { initialState };
