@@ -1,30 +1,41 @@
 import { createReducer } from "redux-starter-kit";
 import { saveArtist, removeArtist, changeSearchQuery } from "./actions";
 
-let localStorageSavedArtists;
+const localStorageKey = "reduxStore";
+
+function saveStateToLocalStorage(state) {
+  console.assert(state !== undefined, "Don't forget to pass in state");
+  localStorage.setItem(localStorageKey, JSON.stringify(state));
+}
+
+let localStorageState;
 try {
-  localStorageSavedArtists = JSON.parse(
-    localStorage.getItem(saveArtist.toString())
-  );
+  localStorageState = JSON.parse(localStorage.getItem(localStorageKey));
 } catch (e) {
   console.error(e);
 }
 
-const initialState = {
-  savedArtists: localStorageSavedArtists ? localStorageSavedArtists : [],
-  searchQuery: "Tiger"
-};
+const initialState = localStorageState
+  ? localStorageState
+  : {
+      savedArtists: [],
+      searchQuery: "Tiger"
+    };
 
 const rootReducer = createReducer(initialState, {
-  [saveArtist]: ({ savedArtists }, { payload: id }) => {
+  [saveArtist]: (state, { payload: id }) => {
+    const savedArtists = state.savedArtists;
     if (!savedArtists.includes(id)) {
       savedArtists.push(id);
-      localStorage.setItem(saveArtist.toString(), JSON.stringify(savedArtists));
+
+      saveStateToLocalStorage(state);
     }
   },
   [removeArtist]: (state, { payload: id }) => {
     const savedArtists = state.savedArtists.filter(_id => _id !== id);
-    localStorage.setItem(saveArtist.toString(), JSON.stringify(savedArtists));
+
+    saveStateToLocalStorage(state);
+
     return {
       ...state,
       savedArtists
@@ -32,6 +43,7 @@ const rootReducer = createReducer(initialState, {
   },
   [changeSearchQuery]: (state, { payload: query }) => {
     state.searchQuery = query;
+    saveStateToLocalStorage(state);
   }
 });
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Input from "@material-ui/core/Input";
@@ -9,42 +10,66 @@ import { withStyles } from "@material-ui/core/styles";
 
 function mapDispatchToProps(dispatch) {
   return {
-    _changeSearchQuery: query => dispatch(changeSearchQuery(query))
+    _changeSearchQuery: function(query) {
+      return new Promise((resolve, reject) => {
+        dispatch(changeSearchQuery(query));
+      });
+    }
   };
 }
 
-const HeaderSearchBar = ({ classes, _changeSearchQuery }) => {
-  const [query, setQuery] = useState("Tiger");
+function mapStateToProps(state) {
+  return {
+    searchQuery: state.searchQuery
+  };
+}
+
+const HeaderSearchBar = ({
+  classes,
+  searchQuery,
+  _changeSearchQuery,
+  history
+}) => {
+  const [query, setQuery] = useState(searchQuery);
+
   const handleSearchSubmit = event => {
     event.preventDefault();
-    _changeSearchQuery(query);
     document.activeElement.blur();
+
+    // better solution than `return <Redirect>`
+    _changeSearchQuery(query).then(history.push("/search"));
   };
 
   return (
-    <div className={classes.search}>
-      <form onSubmit={handleSearchSubmit} action="#" method="get">
-        <div className={classes.searchFrom}>
-          <Input
-            placeholder="Search…"
-            type="search"
-            name="query"
-            value={query}
-            onChange={event => {
-              setQuery(event.target.value);
-            }}
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput
-            }}
-            disableUnderline
-          />
-          <Button className={classes.searchIcon} color="inherit" type="submit">
-            <SearchIcon />
-          </Button>
-        </div>
-      </form>
-    </div>
+    <>
+      <div className={classes.search}>
+        <form onSubmit={handleSearchSubmit} action="#" method="get">
+          <div className={classes.searchFrom}>
+            <Input
+              placeholder="Search…"
+              type="search"
+              name="query"
+              value={query}
+              onChange={event => {
+                setQuery(event.target.value);
+              }}
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput
+              }}
+              disableUnderline
+            />
+            <Button
+              className={classes.searchIcon}
+              color="inherit"
+              type="submit"
+            >
+              <SearchIcon />
+            </Button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 
@@ -88,6 +113,6 @@ const styles = theme => ({
 export { HeaderSearchBar };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(HeaderSearchBar));
+)(withRouter(withStyles(styles)(HeaderSearchBar)));
