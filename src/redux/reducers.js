@@ -23,9 +23,11 @@ const rootReducer = createReducer(initialState, {
     }
   },
   [removeArtist]: (state, { payload: id }) => {
+    const savedArtists = state.savedArtists.filter(_id => _id !== id);
+    localStorage.setItem(saveArtist.toString(), JSON.stringify(savedArtists));
     return {
       ...state,
-      savedArtists: state.savedArtists.filter(_id => _id !== id)
+      savedArtists
     };
   },
   [changeSearchQuery]: (state, { payload: query }) => {

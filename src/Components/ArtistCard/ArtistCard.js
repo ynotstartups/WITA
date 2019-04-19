@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { connect } from "react-redux";
 import { saveArtist, removeArtist } from "../../redux/actions";
 import Favorite from "@material-ui/icons/Favorite";
+import gql from "graphql-tag";
 
 function mapStateToProps({ savedArtists }) {
   return {
@@ -56,6 +57,21 @@ const ArtistCard = ({
   );
 };
 
+ArtistCard.fragments = {
+  ArtistCardArtist: gql`
+    fragment ArtistCardArtist on Artist {
+      id
+      name
+      artworks(page: 1) {
+        displayLabel
+        images {
+          url
+          title
+        }
+      }
+    }
+  `
+};
 const styles = theme => ({
   image: {
     height: 150

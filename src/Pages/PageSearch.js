@@ -13,6 +13,9 @@ function mapStateToProps({ searchQuery }) {
   };
 }
 
+console.log(ArtistCard.fragments.ArtistCardArtist);
+
+// cannot reuse fragments because `GraphQL error on Artsy side, named fragment spread is currently not supported`
 const SEARCH_ARTISTS = query => {
   return gql`
     {
@@ -22,7 +25,7 @@ const SEARCH_ARTISTS = query => {
             displayLabel
             imageUrl
             ... on Artist {
-              __id
+              id
               name
               artworks(page: 1) {
                 displayLabel
@@ -46,6 +49,7 @@ const PageSearch = ({ classes, searchQuery, changeSearchQuery }) => {
       <div style={{ padding: 20 }}>
         <Query query={SEARCH_ARTISTS(searchQuery)}>
           {({ loading, error, data }) => {
+            console.log(SEARCH_ARTISTS(searchQuery));
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
             return (
@@ -55,7 +59,7 @@ const PageSearch = ({ classes, searchQuery, changeSearchQuery }) => {
                 </Typography>
                 <Grid container spacing={32}>
                   {data.search.edges.map(({ node }, index) => {
-                    const { displayLabel, imageUrl, __id: id } = node;
+                    const { displayLabel, imageUrl, id } = node;
                     return (
                       <Grid item xs={12} sm={6} md={3} key={index}>
                         <ArtistCard {...{ displayLabel, imageUrl, id }} />
