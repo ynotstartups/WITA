@@ -47,7 +47,7 @@ const ArtistCard = ({
       <CardHeader
         action={
           <IconButton onClick={handleClick}>
-            <Favorite color={isSaved ? "secondary" : "default"} />
+            <Favorite color={isSaved ? "secondary" : "inherit"} />
           </IconButton>
         }
         title={displayLabel}
