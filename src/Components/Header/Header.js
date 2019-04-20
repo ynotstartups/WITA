@@ -6,16 +6,19 @@ import HeaderSavedArtist from "./HeaderSavedArtist/HeaderSavedArtist";
 import HeaderSearchBar from "./HeaderSearchBar/HeaderSearchBar";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
+import { Link as RouterLink } from "react-router-dom";
 
 const Header = ({ classes }) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" color="inherit" noWrap>
-          WITA
-        </Typography>
+        <div className={classes.siteName}>
+          <Typography variant="h6" color="inherit" noWrap>
+            Who is this artist?
+          </Typography>
+        </div>
         <HeaderSearchBar />
-        <Link to="/" className={classes.link}>
+        <Link component={RouterLink} to="/" className={classes.link}>
           <HeaderSavedArtist />
         </Link>
       </Toolbar>
@@ -24,7 +27,8 @@ const Header = ({ classes }) => {
 };
 
 const styles = theme => ({
-  link: { color: "inherit" }
+  siteName: { pointerEvents: "none" },
+  link: { textDecoration: "none", color: "inherit" }
 });
 
 export default withStyles(styles)(Header);

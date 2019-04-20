@@ -27,26 +27,29 @@ const PageSavedArtists = ({ savedArtists }) => {
   return (
     <>
       <Header />
-      <Typography variant="h4" gutterBottom>
-        Your saved Artist
-      </Typography>
-      <Query query={SAVED_ARTISTS} variables={{ slugs: savedArtists }}>
-        {({ loading, error, data }) => {
-          if (loading) return "Loading...";
-          if (error) return `Error! ${error.message}`;
-          return (
-            <Grid container spacing={32}>
-              {data.artists.map(({ displayLabel, imageUrl, id }, index) => {
-                return (
-                  <Grid item xs={12} sm={6} md={3} key={index}>
-                    <ArtistCard {...{ displayLabel, imageUrl, id }} />
-                  </Grid>
-                );
-              })}
-            </Grid>
-          );
-        }}
-      </Query>
+      {/* TODO make a content wrapper component */}
+      <div style={{ padding: 32 }}>
+        <Typography variant="h4" gutterBottom>
+          Your saved Artist
+        </Typography>
+        <Query query={SAVED_ARTISTS} variables={{ slugs: savedArtists }}>
+          {({ loading, error, data }) => {
+            if (loading) return "Loading...";
+            if (error) return `Error! ${error.message}`;
+            return (
+              <Grid container spacing={32}>
+                {data.artists.map((props, index) => {
+                  return (
+                    <Grid item xs={12} sm={6} md={3} key={index}>
+                      <ArtistCard {...props} />
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            );
+          }}
+        </Query>
+      </div>
     </>
   );
 };

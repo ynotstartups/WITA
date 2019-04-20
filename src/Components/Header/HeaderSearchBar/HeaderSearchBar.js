@@ -30,7 +30,7 @@ const HeaderSearchBar = ({
   _changeSearchQuery,
   history
 }) => {
-  const [query, setQuery] = useState(searchQuery);
+  const [query, setQuery] = useState(null);
 
   const handleSearchSubmit = event => {
     event.preventDefault();
@@ -46,7 +46,7 @@ const HeaderSearchBar = ({
         <form onSubmit={handleSearchSubmit} action="#" method="get">
           <div className={classes.searchFrom}>
             <Input
-              placeholder="Search…"
+              placeholder="Search by Artist name…"
               type="search"
               name="query"
               value={query}

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
+import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
 import { connect } from "react-redux";
 import { saveArtist, removeArtist } from "../../redux/actions";
@@ -27,6 +29,7 @@ const ArtistCard = ({
   imageUrl,
   displayLabel,
   id,
+  href,
   saveArtist,
   removeArtist,
   savedArtists,
@@ -43,7 +46,7 @@ const ArtistCard = ({
     setIsSaved(!isSaved);
   };
   return (
-    <Card>
+    <Card className={classes.card}>
       <CardHeader
         action={
           <IconButton onClick={handleClick}>
@@ -53,6 +56,41 @@ const ArtistCard = ({
         title={displayLabel}
       />
       <CardMedia className={classes.image} image={imageUrl} />
+      <CardActions>
+        {href && (
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => {
+              window.open(`https://www.artsy.net${href}`);
+            }}
+          >
+            Artsy
+          </Button>
+        )}
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => {
+            window.open(
+              `https://en.wikipedia.org/wiki/${displayLabel.replace(/ /g, "_")}`
+            );
+          }}
+        >
+          Wikipedia
+        </Button>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => {
+            window.open(
+              `https://www.google.com/search?tbm=isch&q=${displayLabel}`
+            );
+          }}
+        >
+          Google
+        </Button>
+      </CardActions>
     </Card>
   );
 };
@@ -62,6 +100,7 @@ ArtistCard.fragments = {
     fragment ArtistCardArtist on Artist {
       id
       name
+      href
       artworks(page: 1) {
         displayLabel
         images {
@@ -72,9 +111,22 @@ ArtistCard.fragments = {
     }
   `
 };
+
 const styles = theme => ({
+  card: {
+    display: "flex",
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "space-between"
+  },
   image: {
-    height: 150
+    // LOL Artsy cropped it to 230
+    height: 230,
+    width: 230,
+    margin: "auto",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat"
   }
 });
 

@@ -7,6 +7,8 @@ import store from "./redux/store";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { HashRouter } from "react-router-dom";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import theme from "./material-ui/theme";
 
 // TODO
 import * as serviceWorker from "./serviceWorker";
@@ -19,7 +21,9 @@ ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
       <ApolloProvider client={client}>
-        <App />
+        <MuiThemeProvider theme={theme}>
+          <App />
+        </MuiThemeProvider>
       </ApolloProvider>
     </HashRouter>
   </Provider>,

@@ -25,13 +25,7 @@ const SEARCH_ARTISTS = query => {
             ... on Artist {
               id
               name
-              artworks(page: 1) {
-                displayLabel
-                images {
-                  url
-                  title
-                }
-              }
+              href
             }
           }
         }
@@ -44,7 +38,7 @@ const PageSearch = ({ searchQuery }) => {
   return (
     <>
       <Header />
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: 32 }}>
         <Query query={SEARCH_ARTISTS(searchQuery)}>
           {({ loading, error, data }) => {
             if (loading) return "Loading...";
@@ -52,14 +46,13 @@ const PageSearch = ({ searchQuery }) => {
             return (
               <>
                 <Typography variant="h4" gutterBottom>
-                  Search artists with name {searchQuery}
+                  Searching artists with name {searchQuery}...
                 </Typography>
                 <Grid container spacing={32}>
                   {data.search.edges.map(({ node }, index) => {
-                    const { displayLabel, imageUrl, id } = node;
                     return (
                       <Grid item xs={12} sm={6} md={3} key={index}>
-                        <ArtistCard {...{ displayLabel, imageUrl, id }} />
+                        <ArtistCard {...node} />
                       </Grid>
                     );
                   })}
