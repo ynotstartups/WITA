@@ -30,7 +30,7 @@ const HeaderSearchBar = ({
   _changeSearchQuery,
   history
 }) => {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
 
   const handleSearchSubmit = event => {
     event.preventDefault();
