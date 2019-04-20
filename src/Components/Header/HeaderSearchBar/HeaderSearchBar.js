@@ -85,8 +85,10 @@ const styles = theme => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25)
     },
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2
+    marginRight: theme.spacing.unit,
+    [theme.breakpoints.up("md")]: {
+      margin: `0 ${theme.spacing.unit * 2}px`
+    }
   },
   searchIcon: {
     width: theme.spacing.unit * 9,

@@ -26,7 +26,12 @@ const Header = ({ classes }) => {
 };
 
 const styles = theme => ({
-  siteName: { pointerEvents: "none" },
+  siteName: {
+    pointerEvents: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
+  },
   link: { textDecoration: "none", color: "inherit" }
 });
 
