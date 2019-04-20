@@ -6,7 +6,6 @@ import HeaderSavedArtist from "./HeaderSavedArtist/HeaderSavedArtist";
 import HeaderSearchBar from "./HeaderSearchBar/HeaderSearchBar";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
-import { Link as RouterLink } from "react-router-dom";
 
 const Header = ({ classes }) => {
   return (
@@ -18,7 +17,7 @@ const Header = ({ classes }) => {
           </Typography>
         </div>
         <HeaderSearchBar />
-        <Link component={RouterLink} to="/" className={classes.link}>
+        <Link to="/" className={classes.link}>
           <HeaderSavedArtist />
         </Link>
       </Toolbar>
