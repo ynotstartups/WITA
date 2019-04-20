@@ -9,7 +9,9 @@ const App = () => {
     <Switch>
       <Route exact path="/" component={PageSavedArtists} />
       <Route path="/search" component={PageSearch} />
-      <Route path="/gallery" component={PageArtistGallery} />
+      <Route path="/gallery/:id" component={PageArtistGallery} />
+      {/* Go to PageSavedArtists when no match */}
+      <Route component={PageSavedArtists} />
     </Switch>
   );
 };
