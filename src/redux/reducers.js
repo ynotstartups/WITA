@@ -1,5 +1,5 @@
 import { createReducer } from 'redux-starter-kit';
-import { saveArtist, removeArtist, changeSearchQuery } from './actions';
+import { saveArtist, removeArtist } from './actions';
 
 const localStorageKey = 'reduxStore';
 
@@ -39,10 +39,6 @@ const rootReducer = createReducer(initialState, {
       ...state,
       savedArtists,
     };
-  },
-  [changeSearchQuery]: (state, { payload: query }) => {
-    state.searchQuery = query;
-    saveStateToLocalStorage(state);
   },
 });
 

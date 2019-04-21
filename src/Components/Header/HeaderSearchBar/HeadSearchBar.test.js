@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import * as router from '@reach/router';
 import { UnconnectedHeaderSearchBar } from './HeaderSearchBar';
 
-it('HeaderSearchBar should call _changeSearchQuery on submit', () => {
+it('HeaderSearchBar should call router navigate on submit', () => {
   const spy = jest.spyOn(router, 'navigate');
 
   // TODO how to global mock classes
