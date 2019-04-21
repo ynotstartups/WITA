@@ -4,7 +4,6 @@ import './index.css';
 import { Provider } from 'react-redux';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { HashRouter } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import store from './redux/store';
 import App from './App';
@@ -19,13 +18,11 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
-      <ApolloProvider client={client}>
-        <MuiThemeProvider theme={theme}>
-          <App />
-        </MuiThemeProvider>
-      </ApolloProvider>
-    </HashRouter>
+    <ApolloProvider client={client}>
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
+    </ApolloProvider>
   </Provider>,
   document.getElementById('root'),
 );

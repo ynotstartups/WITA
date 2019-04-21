@@ -2,27 +2,30 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import { navigate } from '@reach/router';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import gql from 'graphql-tag';
-import { withRouter } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import ArtistSaveButton from './ArtistSaveButton/ArtistSaveButton';
 
 const ArtistCard = ({
-  imageUrl, displayLabel, id, href, classes, history,
+  imageUrl, displayLabel, id, href, classes,
 }) => (
   <Card className={classes.card}>
     <CardHeader action={<ArtistSaveButton id={id} />} title={displayLabel} />
     <CardActionArea
       onClick={() => {
-        history.push(`/gallery/${id}`);
+        navigate(`/gallery/${id}`);
       }}
     >
-      <CardMedia className={classes.image} image={imageUrl} />
+      <CardMedia
+        className={classes.image}
+        image={imageUrl || `${process.env.PUBLIC_URL}/img/no-image.jpg`}
+      />
     </CardActionArea>
     <CardActions>
       <Button
@@ -92,12 +95,15 @@ const styles = () => ({
 });
 
 ArtistCard.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   displayLabel: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
-export default withRouter(withStyles(styles)(ArtistCard));
+ArtistCard.defaultProps = {
+  imageUrl: '',
+};
+
+export default withStyles(styles)(ArtistCard);

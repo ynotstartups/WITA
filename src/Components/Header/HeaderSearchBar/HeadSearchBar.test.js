@@ -1,24 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import * as router from '@reach/router';
 import { UnconnectedHeaderSearchBar } from './HeaderSearchBar';
 
 it('HeaderSearchBar should call _changeSearchQuery on submit', () => {
-  const mockChangeSearchQuery = jest.fn();
-  mockChangeSearchQuery.mockReturnValue(new Promise(() => {}));
-
-  const mockHistoryPush = jest.fn();
+  const spy = jest.spyOn(router, 'navigate');
 
   // TODO how to global mock classes
-  const headerSearchBar = mount(
-    <UnconnectedHeaderSearchBar
-      _changeSearchQuery={mockChangeSearchQuery}
-      classes={jest.fn()}
-      history={{ push: mockHistoryPush }}
-    />,
-  );
+  const headerSearchBar = mount(<UnconnectedHeaderSearchBar classes={jest.fn()} />);
 
   headerSearchBar.find('form').simulate('submit');
 
-  expect(mockChangeSearchQuery.mock.calls.length).toBe(1);
-  expect(mockHistoryPush.mock.calls[0][0]).toBe('/search');
+  expect(spy.mock.calls[0][0]).toBe('/search/');
 });

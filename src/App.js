@@ -1,17 +1,15 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Router } from '@reach/router';
 import PageSavedArtists from './Pages/PageSavedArtists';
 import PageSearch from './Pages/PageSearch';
 import PageArtistGallery from './Pages/PageArtistGallery';
 
 const App = () => (
-  <Switch>
-    <Route exact path="/" component={PageSavedArtists} />
-    <Route path="/search" component={PageSearch} />
-    <Route path="/gallery/:id" component={PageArtistGallery} />
-    {/* Go to PageSavedArtists when no match */}
-    <Route component={PageSavedArtists} />
-  </Switch>
+  <Router>
+    <PageSavedArtists path="/" />
+    <PageSearch path="search/:query" />
+    <PageArtistGallery path="gallery/:id" />
+  </Router>
 );
 
 export default App;
