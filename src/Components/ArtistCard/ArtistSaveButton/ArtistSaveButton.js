@@ -25,11 +25,9 @@ function ArtistSaveButton({
   dispatchRemoveArtist
 }) {
   const isSaved = savedArtists.includes(id);
-  console.log("isSaved", isSaved);
 
   const handleClick = () => {
     if (isSaved) {
-      console.log("isSaved", isSaved);
       dispatchRemoveArtist(id);
     } else {
       dispatchSaveArtist(id);

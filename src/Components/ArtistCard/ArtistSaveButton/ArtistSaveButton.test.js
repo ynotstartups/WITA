@@ -36,7 +36,6 @@ describe("test ArtistSaveButton", () => {
       />
     );
 
-    console.log(ShallowArtistSaveButton.debug());
     ShallowArtistSaveButton.find("button").simulate("click");
 
     expect(dispatchSaveArtist.mock.calls.length).toBe(0);
