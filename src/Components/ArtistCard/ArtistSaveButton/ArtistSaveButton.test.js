@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import IconButton from '@material-ui/core/IconButton';
 import { UnconnectedArtistSaveButton } from './ArtistSaveButton';
 
 describe('test ArtistSaveButton', () => {

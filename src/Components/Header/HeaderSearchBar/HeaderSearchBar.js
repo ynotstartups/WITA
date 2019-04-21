@@ -6,12 +6,13 @@ import Input from '@material-ui/core/Input';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import SearchIcon from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import { changeSearchQuery } from '../../../redux/actions';
 
 function mapDispatchToProps(dispatch) {
   return {
     _changeSearchQuery(query) {
-      return new Promise((resolve, reject) => {
+      return new Promise(() => {
         dispatch(changeSearchQuery(query));
       });
     },
@@ -97,9 +98,15 @@ const styles = theme => ({
   },
 });
 
-export { HeaderSearchBar };
+export { HeaderSearchBar as UnconnectedHeaderSearchBar };
 
 export default connect(
   null,
   mapDispatchToProps,
 )(withRouter(withStyles(styles)(HeaderSearchBar)));
+
+HeaderSearchBar.propTypes = {
+  _changeSearchQuery: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};

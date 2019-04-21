@@ -11,7 +11,7 @@ import App from './App';
 import theme from './material-ui/theme';
 
 // TODO
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({
   uri: 'https://metaphysics-production.artsy.net/',

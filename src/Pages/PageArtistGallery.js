@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import gql from 'graphql-tag';
 import { Typography } from '@material-ui/core';
 import InfiniteScroll from 'react-infinite-scroller';
+import PropTypes from 'prop-types';
 
 import { withApollo } from 'react-apollo';
 import Header from '../Components/Header/Header';
@@ -54,7 +55,7 @@ function appendPhotos(displayLabel, photos, ended) {
   };
 }
 
-const PageArtistGallery = ({ savedArtists, match, client }) => {
+const PageArtistGallery = ({ match, client }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchPhotos = async () => {
@@ -101,3 +102,8 @@ const PageArtistGallery = ({ savedArtists, match, client }) => {
 };
 
 export default withApollo(PageArtistGallery);
+
+PageArtistGallery.propTypes = {
+  match: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  client: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};

@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import { Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import ArtistCard from '../Components/ArtistCard/ArtistCard';
 import Header from '../Components/Header/Header';
 
@@ -13,7 +14,8 @@ function mapStateToProps({ searchQuery }) {
   };
 }
 
-// cannot reuse fragments because `GraphQL error on Artsy side, named fragment spread is currently not supported`
+// cannot reuse fragments because `GraphQL error on Artsy side
+// named fragment spread is currently not supported`
 const SEARCH_ARTISTS = query => gql`
     {
       search(query: "${query}", entities: [ARTIST], first: 20) {
@@ -43,16 +45,15 @@ const PageSearch = ({ searchQuery }) => (
           return (
             <>
               <Typography variant="h4" gutterBottom>
-                  Searching artists with name
+                Searching artists with name
                 {' '}
                 {searchQuery}
-...
               </Typography>
               <Grid container spacing={32}>
-                {data.search.edges.map(({ node }, index) => (
-                  <Grid item xs={12} sm={6} md={3} key={index}>
-                      <ArtistCard {...node} />
-                    </Grid>
+                {data.search.edges.map(({ node }) => (
+                  <Grid item xs={12} sm={6} md={3} key={node.id}>
+                    <ArtistCard {...node} />
+                  </Grid>
                 ))}
               </Grid>
             </>
@@ -64,3 +65,7 @@ const PageSearch = ({ searchQuery }) => (
 );
 
 export default connect(mapStateToProps)(PageSearch);
+
+PageSearch.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+};

@@ -6,11 +6,11 @@ import { withTheme } from '@material-ui/core/styles';
 const ArtworkGallery = ({ theme, photos }) => {
   const { sm, md, lg } = theme.breakpoints.values;
   function columns(containerWidth) {
-    let columns = 1;
-    if (containerWidth >= sm) columns = 2;
-    if (containerWidth >= md) columns = 3;
-    if (containerWidth >= lg) columns = 4;
-    return columns;
+    let columnsNumber = 1;
+    if (containerWidth >= sm) columnsNumber = 2;
+    if (containerWidth >= md) columnsNumber = 3;
+    if (containerWidth >= lg) columnsNumber = 4;
+    return columnsNumber;
   }
 
   return <Gallery photos={photos} direction="column" columns={columns} margin={16} />;
@@ -26,5 +26,5 @@ ArtworkGallery.propTypes = {
       height: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };

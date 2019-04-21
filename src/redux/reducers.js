@@ -4,7 +4,6 @@ import { saveArtist, removeArtist, changeSearchQuery } from './actions';
 const localStorageKey = 'reduxStore';
 
 function saveStateToLocalStorage(state) {
-  console.assert(state !== undefined, "Don't forget to pass in state");
   localStorage.setItem(localStorageKey, JSON.stringify(state));
 }
 
@@ -22,7 +21,7 @@ const initialState = localStorageState || {
 
 const rootReducer = createReducer(initialState, {
   [saveArtist]: (state, { payload: id }) => {
-    const savedArtists = state.savedArtists;
+    const savedArtists = { state };
     if (!savedArtists.includes(id)) {
       savedArtists.push(id);
 

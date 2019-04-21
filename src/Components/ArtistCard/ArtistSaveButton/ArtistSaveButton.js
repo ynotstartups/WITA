@@ -40,7 +40,7 @@ function ArtistSaveButton({
 
 ArtistSaveButton.propTypes = {
   id: PropTypes.string.isRequired,
-  savedArtists: PropTypes.array.isRequired,
+  savedArtists: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatchSaveArtist: PropTypes.func.isRequired,
   dispatchRemoveArtist: PropTypes.func.isRequired,
 };

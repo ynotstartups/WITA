@@ -1,9 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { createReducer, configureStore } from 'redux-starter-kit';
-import { HeaderSearchBar } from './HeaderSearchBar';
-
-const store = configureStore({ reducer: createReducer({}, {}) });
+import { UnconnectedHeaderSearchBar } from './HeaderSearchBar';
 
 it('HeaderSearchBar should call _changeSearchQuery on submit', () => {
   const mockChangeSearchQuery = jest.fn();
@@ -13,7 +10,7 @@ it('HeaderSearchBar should call _changeSearchQuery on submit', () => {
 
   // TODO how to global mock classes
   const headerSearchBar = mount(
-    <HeaderSearchBar
+    <UnconnectedHeaderSearchBar
       _changeSearchQuery={mockChangeSearchQuery}
       classes={jest.fn()}
       history={{ push: mockHistoryPush }}

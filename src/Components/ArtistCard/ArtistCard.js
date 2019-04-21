@@ -8,6 +8,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import gql from 'graphql-tag';
 import { withRouter } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
 import ArtistSaveButton from './ArtistSaveButton/ArtistSaveButton';
 
 const ArtistCard = ({
@@ -30,7 +32,7 @@ const ArtistCard = ({
           window.open(`https://www.artsy.net${href}`);
         }}
       >
-          Artsy
+        Artsy
       </Button>
       <Button
         size="small"
@@ -39,7 +41,7 @@ const ArtistCard = ({
           window.open(`https://en.wikipedia.org/wiki/${displayLabel.replace(/ /g, '_')}`);
         }}
       >
-          Wikipedia
+        Wikipedia
       </Button>
       <Button
         size="small"
@@ -48,7 +50,7 @@ const ArtistCard = ({
           window.open(`https://www.google.com/search?tbm=isch&q=${displayLabel}`);
         }}
       >
-          Google
+        Google
       </Button>
     </CardActions>
   </Card>
@@ -71,7 +73,7 @@ ArtistCard.fragments = {
   `,
 };
 
-const styles = theme => ({
+const styles = () => ({
   card: {
     display: 'flex',
     height: '100%',
@@ -88,5 +90,14 @@ const styles = theme => ({
     backgroundRepeat: 'no-repeat',
   },
 });
+
+ArtistCard.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  displayLabel: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default withRouter(withStyles(styles)(ArtistCard));
