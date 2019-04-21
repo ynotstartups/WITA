@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import ArtworkGallery from "./ArtworkGallery";
 
-it("renders correctly", () => {
+test("ArtworkGallery renders correctly", () => {
   const theme = {
     breakpoints: {
       values: {

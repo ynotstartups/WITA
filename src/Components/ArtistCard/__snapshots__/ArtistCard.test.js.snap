@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistCard renders correctly 1`] = `
+<div
+  className="MuiPaper-root-4 MuiPaper-elevation1-7 MuiPaper-rounded-5 MuiCard-root-3 ArtistCard-card-1"
+>
+  <div
+    className="MuiCardHeader-root-31"
+  >
+    <div
+      className="MuiCardHeader-content-34"
+    >
+      <span
+        className="MuiTypography-root-37 MuiTypography-headline-42 MuiCardHeader-title-35"
+      >
+        Tiger
+      </span>
+    </div>
+    <div
+      className="MuiCardHeader-action-33"
+    >
+      <div />
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root-76 MuiCardActionArea-root-73"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onContextMenu={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex="0"
+    type="button"
+  >
+    <div
+      className="MuiCardMedia-root-79 ArtistCard-image-2"
+      style={
+        Object {
+          "backgroundImage": "url(\\"artsy\\")",
+        }
+      }
+    />
+    <span
+      className="MuiCardActionArea-focusHighlight-75"
+    />
+    <span
+      className="MuiTouchRipple-root-110"
+    />
+  </button>
+  <div
+    className="MuiCardActions-root-81"
+  >
+    <button
+      className="MuiButtonBase-root-76 MuiButton-root-84 MuiButton-text-86 MuiButton-textPrimary-87 MuiButton-flat-89 MuiButton-flatPrimary-90 MuiButton-sizeSmall-107 MuiCardActions-action-83"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-85"
+      >
+        Artsy
+      </span>
+      <span
+        className="MuiTouchRipple-root-110"
+      />
+    </button>
+    <button
+      className="MuiButtonBase-root-76 MuiButton-root-84 MuiButton-text-86 MuiButton-textPrimary-87 MuiButton-flat-89 MuiButton-flatPrimary-90 MuiButton-sizeSmall-107 MuiCardActions-action-83"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-85"
+      >
+        Wikipedia
+      </span>
+      <span
+        className="MuiTouchRipple-root-110"
+      />
+    </button>
+    <button
+      className="MuiButtonBase-root-76 MuiButton-root-84 MuiButton-text-86 MuiButton-textPrimary-87 MuiButton-flat-89 MuiButton-flatPrimary-90 MuiButton-sizeSmall-107 MuiCardActions-action-83"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-85"
+      >
+        Google
+      </span>
+      <span
+        className="MuiTouchRipple-root-110"
+      />
+    </button>
+  </div>
+</div>
+`;
