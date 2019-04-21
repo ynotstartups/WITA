@@ -61,7 +61,6 @@ const PageSavedArtists = ({ savedArtists }) => (
 );
 
 export default connect(mapStateToProps)(PageSavedArtists);
-
 PageSavedArtists.propTypes = {
   savedArtists: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

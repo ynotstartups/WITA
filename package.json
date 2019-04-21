@@ -32,7 +32,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "format": "prettier-eslint --eslint-config-path \"./.eslintrc.json\" --write \"src/**/*.js\" \"src/**/*.json\"",
+    "format:prettier-eslint": "prettier-eslint",
+    "format": "prettier-eslint --eslint-config-path \"./.eslintrc.json\" --write \"src/**/*.js\" && prettier-eslint --write \".eslintrc.json\"",
     "lint": "eslint -c \"./.eslintrc.json\" \"./**/*.js\""
   },
   "browserslist": [
@@ -46,6 +47,7 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "gh-pages": "^2.0.1",
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1"
