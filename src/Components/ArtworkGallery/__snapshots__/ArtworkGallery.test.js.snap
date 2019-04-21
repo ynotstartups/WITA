@@ -5,9 +5,3 @@ exports[`ArtworkGallery renders correctly 1`] = `
    
 </div>
 `;
-
-exports[`renders correctly 1`] = `
-<div>
-   
-</div>
-`;
