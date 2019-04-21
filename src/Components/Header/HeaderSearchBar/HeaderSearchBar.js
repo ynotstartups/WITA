@@ -18,18 +18,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state) {
-  return {
-    searchQuery: state.searchQuery
-  };
-}
-
-const HeaderSearchBar = ({
-  classes,
-  searchQuery,
-  _changeSearchQuery,
-  history
-}) => {
+const HeaderSearchBar = ({ classes, _changeSearchQuery, history }) => {
   const [query, setQuery] = useState("");
 
   const handleSearchSubmit = event => {
@@ -115,6 +104,6 @@ const styles = theme => ({
 export { HeaderSearchBar };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(withRouter(withStyles(styles)(HeaderSearchBar)));
