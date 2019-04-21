@@ -1,7 +1,7 @@
-import { createReducer } from "redux-starter-kit";
-import { saveArtist, removeArtist, changeSearchQuery } from "./actions";
+import { createReducer } from 'redux-starter-kit';
+import { saveArtist, removeArtist, changeSearchQuery } from './actions';
 
-const localStorageKey = "reduxStore";
+const localStorageKey = 'reduxStore';
 
 function saveStateToLocalStorage(state) {
   console.assert(state !== undefined, "Don't forget to pass in state");
@@ -15,12 +15,10 @@ try {
   console.error(e);
 }
 
-const initialState = localStorageState
-  ? localStorageState
-  : {
-      savedArtists: [],
-      searchQuery: "Tiger"
-    };
+const initialState = localStorageState || {
+  savedArtists: [],
+  searchQuery: 'Tiger',
+};
 
 const rootReducer = createReducer(initialState, {
   [saveArtist]: (state, { payload: id }) => {
@@ -38,13 +36,13 @@ const rootReducer = createReducer(initialState, {
 
     return {
       ...state,
-      savedArtists
+      savedArtists,
     };
   },
   [changeSearchQuery]: (state, { payload: query }) => {
     state.searchQuery = query;
     saveStateToLocalStorage(state);
-  }
+  },
 });
 
 export default rootReducer;

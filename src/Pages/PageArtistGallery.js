@@ -1,11 +1,11 @@
-import React, { useReducer } from "react";
-import gql from "graphql-tag";
-import { Typography } from "@material-ui/core";
-import InfiniteScroll from "react-infinite-scroller";
+import React, { useReducer } from 'react';
+import gql from 'graphql-tag';
+import { Typography } from '@material-ui/core';
+import InfiniteScroll from 'react-infinite-scroller';
 
-import Header from "../Components/Header/Header";
-import ArtworkGallery from "../Components/ArtworkGallery/ArtworkGallery";
-import { withApollo } from "react-apollo";
+import { withApollo } from 'react-apollo';
+import Header from '../Components/Header/Header';
+import ArtworkGallery from '../Components/ArtworkGallery/ArtworkGallery';
 
 const ArtistImages = gql`
   query ArtistImages($id: String!, $page: Int!) {
@@ -27,18 +27,18 @@ const initialState = {
   initFetchDone: false,
   displayLabel: null,
   page: 1,
-  ended: false
+  ended: false,
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "append":
+    case 'append':
       return {
         photos: state.photos.concat(action.photos),
         displayLabel: action.displayLabel,
         initFetchDone: true,
         page: state.page + 1,
-        ended: action.ended
+        ended: action.ended,
       };
     default:
       throw new Error();
@@ -47,10 +47,10 @@ function reducer(state, action) {
 
 function appendPhotos(displayLabel, photos, ended) {
   return {
-    type: "append",
+    type: 'append',
     photos,
     ended,
-    displayLabel
+    displayLabel,
   };
 }
 
@@ -60,14 +60,14 @@ const PageArtistGallery = ({ savedArtists, match, client }) => {
   const fetchPhotos = async () => {
     const { data } = await client.query({
       query: ArtistImages,
-      variables: { id: match.params.id, page: state.page }
+      variables: { id: match.params.id, page: state.page },
     });
 
     const { artworks, displayLabel } = data.artist;
     const photos = artworks.map(({ image }) => ({
       width: image.width,
       height: image.height,
-      src: image.url
+      src: image.url,
     }));
 
     let ended = false;
@@ -81,9 +81,11 @@ const PageArtistGallery = ({ savedArtists, match, client }) => {
   return (
     <>
       <Header />
-      <div style={{ padding: `16px 16px 0` }}>
+      <div style={{ padding: '16px 16px 0' }}>
         <Typography variant="h4" gutterBottom>
-          Artwork Gallery for {state.displayLabel}
+          Artwork Gallery for
+          {' '}
+          {state.displayLabel}
         </Typography>
       </div>
       <InfiniteScroll

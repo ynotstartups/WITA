@@ -1,32 +1,32 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import Button from "@material-ui/core/Button";
-import Input from "@material-ui/core/Input";
-import { fade } from "@material-ui/core/styles/colorManipulator";
-import SearchIcon from "@material-ui/icons/Search";
-import { changeSearchQuery } from "../../../redux/actions";
-import { withStyles } from "@material-ui/core/styles";
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import SearchIcon from '@material-ui/icons/Search';
+import { withStyles } from '@material-ui/core/styles';
+import { changeSearchQuery } from '../../../redux/actions';
 
 function mapDispatchToProps(dispatch) {
   return {
-    _changeSearchQuery: function(query) {
+    _changeSearchQuery(query) {
       return new Promise((resolve, reject) => {
         dispatch(changeSearchQuery(query));
       });
-    }
+    },
   };
 }
 
 const HeaderSearchBar = ({ classes, _changeSearchQuery, history }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
-  const handleSearchSubmit = event => {
+  const handleSearchSubmit = (event) => {
     event.preventDefault();
     document.activeElement.blur();
 
     // better solution than `return <Redirect>`
-    _changeSearchQuery(query).then(history.push("/search"));
+    _changeSearchQuery(query).then(history.push('/search'));
   };
 
   return (
@@ -39,20 +39,16 @@ const HeaderSearchBar = ({ classes, _changeSearchQuery, history }) => {
               type="search"
               name="query"
               value={query}
-              onChange={event => {
+              onChange={(event) => {
                 setQuery(event.target.value);
               }}
               classes={{
                 root: classes.inputRoot,
-                input: classes.inputInput
+                input: classes.inputInput,
               }}
               disableUnderline
             />
-            <Button
-              className={classes.searchIcon}
-              color="inherit"
-              type="submit"
-            >
+            <Button className={classes.searchIcon} color="inherit" type="submit">
               <SearchIcon />
             </Button>
           </div>
@@ -64,46 +60,46 @@ const HeaderSearchBar = ({ classes, _changeSearchQuery, history }) => {
 
 const styles = theme => ({
   searchFrom: {
-    display: "flex",
-    alignItems: "center"
+    display: 'flex',
+    alignItems: 'center',
   },
   search: {
     flex: 1,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: theme.spacing.unit,
-    [theme.breakpoints.up("md")]: {
-      margin: `0 ${theme.spacing.unit * 2}px`
-    }
+    [theme.breakpoints.up('md')]: {
+      margin: `0 ${theme.spacing.unit * 2}px`,
+    },
   },
   searchIcon: {
     width: theme.spacing.unit * 9,
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   inputRoot: {
-    color: "inherit",
-    flex: 1
+    color: 'inherit',
+    flex: 1,
   },
   inputInput: {
-    color: "inherit",
+    color: 'inherit',
     paddingTop: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
     paddingBottom: theme.spacing.unit,
     paddingLeft: theme.spacing.unit * 3,
-    transition: theme.transitions.create("width"),
-    width: "100%"
-  }
+    transition: theme.transitions.create('width'),
+    width: '100%',
+  },
 });
 
 export { HeaderSearchBar };
 
 export default connect(
   null,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(withRouter(withStyles(styles)(HeaderSearchBar)));

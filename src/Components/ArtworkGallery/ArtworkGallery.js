@@ -1,7 +1,7 @@
-import React from "react";
-import Gallery from "react-photo-gallery";
-import PropTypes from "prop-types";
-import { withTheme } from "@material-ui/core/styles";
+import React from 'react';
+import Gallery from 'react-photo-gallery';
+import PropTypes from 'prop-types';
+import { withTheme } from '@material-ui/core/styles';
 
 const ArtworkGallery = ({ theme, photos }) => {
   const { sm, md, lg } = theme.breakpoints.values;
@@ -13,9 +13,7 @@ const ArtworkGallery = ({ theme, photos }) => {
     return columns;
   }
 
-  return (
-    <Gallery photos={photos} direction="column" columns={columns} margin={16} />
-  );
+  return <Gallery photos={photos} direction="column" columns={columns} margin={16} />;
 };
 
 export default withTheme()(ArtworkGallery);
@@ -25,8 +23,8 @@ ArtworkGallery.propTypes = {
     PropTypes.shape({
       src: PropTypes.string.isRequired,
       width: PropTypes.number.isRequired,
-      height: PropTypes.number.isRequired
-    })
+      height: PropTypes.number.isRequired,
+    }),
   ).isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
