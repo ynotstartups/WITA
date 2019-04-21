@@ -21,7 +21,9 @@ const initialState = localStorageState || {
 
 const rootReducer = createReducer(initialState, {
   [saveArtist]: (state, { payload: id }) => {
-    const savedArtists = { state };
+    // immer gotcha, can't destruct
+    // eslint-disable-next-line
+    const savedArtists = state.savedArtists;
     if (!savedArtists.includes(id)) {
       savedArtists.push(id);
 
