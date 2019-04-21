@@ -1,6 +1,7 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useReducer } from "react";
 import gql from "graphql-tag";
 import { Typography } from "@material-ui/core";
+import InfiniteScroll from "react-infinite-scroller";
 
 import Header from "../Components/Header/Header";
 import ArtworkGallery from "../Components/ArtworkGallery/ArtworkGallery";
@@ -20,6 +21,7 @@ const ArtistImages = gql`
     }
   }
 `;
+
 const initialState = {
   photos: [],
   initFetchDone: false,
@@ -52,45 +54,8 @@ function appendPhotos(displayLabel, photos, ended) {
   };
 }
 
-const useInfiniteScroll = callback => {
-  const [isFetching, setIsFetching] = useState(false);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!isFetching) return;
-    callback();
-  }, [isFetching]);
-
-  function handleScroll() {
-    // fetch on only 1 more screen of content left
-    if (
-      window.innerHeight + document.documentElement.scrollTop <
-        document.documentElement.offsetHeight - window.innerHeight ||
-      isFetching
-    )
-      return;
-    setIsFetching(true);
-  }
-
-  return [isFetching, setIsFetching];
-};
-
 const PageArtistGallery = ({ savedArtists, match, client }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [isFetching, setIsFetching] = useInfiniteScroll(async () => {
-    if (state.ended) {
-      // for stopping the useInfiniteScroll callback being called
-      setIsFetching(true);
-      return;
-    }
-
-    await fetchPhotos();
-    setIsFetching(false);
-  });
 
   const fetchPhotos = async () => {
     const { data } = await client.query({
@@ -113,29 +78,22 @@ const PageArtistGallery = ({ savedArtists, match, client }) => {
     dispatch(appendPhotos(displayLabel, photos, ended));
   };
 
-  useEffect(() => {
-    fetchPhotos();
-  }, []);
-
   return (
     <>
       <Header />
-      <div style={{ padding: 32 }}>
-        {state.initFetchDone ? (
-          <>
-            <Typography variant="h4" gutterBottom>
-              Artwork Gallery for {state.displayLabel}
-            </Typography>
-            <ArtworkGallery photos={state.photos} />
-          </>
-        ) : (
-          <div>Loading...</div>
-        )}
-        {!state.ended && isFetching && <div>Loading...</div>}
-        {state.ended && (
-          <div>That's all the artworks in Artsy for this artist...</div>
-        )}
+      <div style={{ padding: `16px 16px 0` }}>
+        <Typography variant="h4" gutterBottom>
+          Artwork Gallery for {state.displayLabel}
+        </Typography>
       </div>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={fetchPhotos}
+        hasMore={!state.ended}
+        loader={<div key={0}>Loading ...</div>}
+      >
+        {state.photos.length !== 0 && <ArtworkGallery photos={state.photos} />}
+      </InfiniteScroll>
     </>
   );
 };
