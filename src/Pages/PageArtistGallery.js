@@ -55,13 +55,13 @@ function appendPhotos(displayLabel, photos, ended) {
   };
 }
 
-const PageArtistGallery = ({ match, client }) => {
+const PageArtistGallery = ({ client, id }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchPhotos = async () => {
     const { data } = await client.query({
       query: ArtistImages,
-      variables: { id: match.params.id, page: state.page },
+      variables: { id, page: state.page },
     });
 
     const { artworks, displayLabel } = data.artist;
@@ -104,6 +104,6 @@ const PageArtistGallery = ({ match, client }) => {
 export default withApollo(PageArtistGallery);
 
 PageArtistGallery.propTypes = {
-  match: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  id: PropTypes.string.isRequired,
   client: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
