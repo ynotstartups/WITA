@@ -15,15 +15,13 @@ const IndexPage = props => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <div className={classes.container}>
-        <Typography variant="h2">Collections</Typography>
+        <Typography variant="h2" gutterBottom align={"center"}>
+          Collections
+        </Typography>
         {props.data.allCollectionsJson.edges.map(({ node }) => {
-          const { title } = node
+          const { title, path } = node
           return (
-            <Link
-              key={title}
-              to={`collections/${slug(title)}/`}
-              color="primary"
-            >
+            <Link key={title} to={`/collections/${path}`} color="primary">
               <Typography variant="h5">{title}</Typography>
             </Link>
           )
@@ -45,10 +43,11 @@ export default withStyles(styles)(IndexPage)
 
 export const query = graphql`
   {
-    allCollectionsJson {
+    allCollectionsJson(filter: { path: { ne: "onboarding" } }) {
       edges {
         node {
           title
+          path
         }
       }
     }

@@ -28,14 +28,15 @@ const SAVED_ARTISTS = gql`
 const SavedArtists = ({ savedArtists }) => {
   useEffect(() => {
     if (savedArtists.length === 0) {
-      navigate("onboarding/")
+      // TODO: can I pass a name instead of hardcoding path?
+      navigate("/collections/onboarding")
     }
   }, [savedArtists.length])
 
   return (
     <>
-      <Typography variant="h4" gutterBottom>
-        Your saved Artist
+      <Typography variant="h2" gutterBottom align={"center"}>
+        Your saved Artists
       </Typography>
       <Query query={SAVED_ARTISTS} variables={{ slugs: savedArtists }}>
         {({ loading, error, data }) => {

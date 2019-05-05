@@ -34,7 +34,7 @@ const TemplateSearch = ({ query }) => {
         if (error) return `Error! ${error.message}`
         return (
           <>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h2" gutterBottom align={"center"}>
               Searching artists with name {query}
             </Typography>
             <Grid container spacing={2}>

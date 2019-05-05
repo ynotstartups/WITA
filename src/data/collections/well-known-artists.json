@@ -1,0 +1,30 @@
+{
+  "title": "Seems like you haven't saved any artists? Here are a few artists you may like...",
+  "path": "onboarding",
+  "artists": [
+    "pablo-picasso",
+    "andy-warhol",
+    "vincent-van-gogh",
+    "claude-monet",
+    "leonardo-da-vinci",
+    "salvador-dali",
+    "michelangelo-buonarroti",
+    "frida-kahlo",
+    "rembrandt-van-rijn",
+    "georgia-okeeffe",
+    "henri-matisse",
+    "edgar-degas",
+    "raphael",
+    "jackson-pollock",
+    "gustav-klimt",
+    "paul-cezanne",
+    "pierre-auguste-renoir",
+    "paul-gauguin",
+    "edouard-manet",
+    "edvard-munch",
+    "wassily-kandinsky",
+    "johannes-vermeer",
+    "michelangelo-merisi-da-caravaggio",
+    "sandro-botticelli"
+  ]
+}

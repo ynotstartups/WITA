@@ -27,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               title
               artists
+              path
             }
           }
         }
@@ -40,9 +41,9 @@ exports.createPages = ({ graphql, actions }) => {
     // Create image post pages.
     const collectionTemplate = path.resolve(`src/templates/collection.js`)
     result.data.allCollectionsJson.edges.forEach(edge => {
-      const { artists, title } = edge.node
+      const { artists, title, path } = edge.node
       createPage({
-        path: `/collections/${slug(title)}/`,
+        path: `/collections/${path}/`,
         component: slash(collectionTemplate),
         context: {
           title,
