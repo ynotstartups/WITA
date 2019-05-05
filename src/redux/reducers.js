@@ -1,5 +1,5 @@
 import { createReducer } from "redux-starter-kit"
-import { saveArtist, removeArtist, changeSearchQuery } from "./actions"
+import { saveArtist, removeArtist } from "./actions"
 
 const localStorageKey = "reduxStore"
 
@@ -8,13 +8,11 @@ function saveStateToLocalStorage(state) {
 }
 
 const getInitialState = () => {
-  console.log("in getInitialState")
   let localStorageState
 
   try {
     if (typeof localStorage !== `undefined`) {
       localStorageState = JSON.parse(localStorage.getItem(localStorageKey))
-      console.log(localStorageState)
     }
   } catch (e) {
     console.error(e)
@@ -43,17 +41,11 @@ const createRootReducer = () => {
       }
     },
     [removeArtist]: (state, { payload: id }) => {
-      const savedArtists = state.savedArtists.filter(_id => _id !== id)
+      state.savedArtists.splice(
+        state.savedArtists.findIndex(artist => artist === id),
+        1
+      )
 
-      saveStateToLocalStorage(state)
-
-      return {
-        ...state,
-        savedArtists,
-      }
-    },
-    [changeSearchQuery]: (state, { payload: query }) => {
-      state.searchQuery = query
       saveStateToLocalStorage(state)
     },
   })

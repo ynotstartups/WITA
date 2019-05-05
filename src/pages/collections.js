@@ -14,6 +14,21 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <div className={classes.container}>
+        <Typography variant="h2">Collections</Typography>
+        {props.data.allCollectionsJson.edges.map(({ node }) => {
+          const { title } = node
+          return (
+            <Link
+              key={title}
+              to={`collections/${slug(title)}/`}
+              color="primary"
+            >
+              <Typography variant="h5">{title}</Typography>
+            </Link>
+          )
+        })}
+      </div>
     </Layout>
   )
 }

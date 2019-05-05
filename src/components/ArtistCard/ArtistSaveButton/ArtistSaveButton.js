@@ -27,9 +27,10 @@ function ArtistSaveButton({
 }) {
   const [isSaved, setIsSaved] = useState(false)
 
+  // TODO figure out how to use redux with gastby/SSR
   useEffect(() => {
     setIsSaved(savedArtists.includes(id))
-  }, [])
+  })
 
   const handleClick = () => {
     if (isSaved) {
