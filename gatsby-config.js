@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Who is this artist | Collections`,
+    siteUrl: `https://whoisthisartist.com`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -25,9 +26,9 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `WhoIsThisArtists?`,
-        short_name: `WITA?`,
+        short_name: `Artist?`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#d2a32d`,
         theme_color: `#d2a32d`,
         display: `standalone`,
         icon: `src/images/icon.png`,
@@ -50,6 +51,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./src/data/`,
+      },
+    },
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://whoisthisartist.com",
+        policy: [{ userAgent: "*", disallow: "" }],
       },
     },
   ],
