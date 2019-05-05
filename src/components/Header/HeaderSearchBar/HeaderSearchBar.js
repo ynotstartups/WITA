@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-// import { navigate } from "@reach/router"
+import { navigate } from "@reach/router"
 import Button from "@material-ui/core/Button"
 import Input from "@material-ui/core/Input"
 import { fade } from "@material-ui/core/styles/colorManipulator"
@@ -16,7 +16,7 @@ const handleSearchSubmit = (event, query) => {
   }
 
   document.activeElement.blur()
-  // navigate(`/search/${query}`)
+  navigate(`/search/${query}`)
 }
 
 const HeaderSearchBar = ({ classes }) => {

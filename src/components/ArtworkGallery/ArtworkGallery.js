@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { withTheme } from "@material-ui/core/styles"
 
 const ArtworkGallery = ({ theme, photos, id }) => {
-  console.log("in ArtworkGallery", id)
   const { sm, md, lg } = theme.breakpoints.values
   function columns(containerWidth) {
     let columnsNumber = 1

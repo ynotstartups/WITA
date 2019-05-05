@@ -14,7 +14,9 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`artist`, `WhoIsThisArtist`]} />
-      <Link to={"/gallery/tiger"}>Gallery</Link>
+      <Link to={"/collections/"}>collections</Link>
+      <br />
+      <Link to={"/gallery/andy-warhol"}>andy warhol gallery</Link>
     </Layout>
   )
 }

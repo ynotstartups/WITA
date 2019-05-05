@@ -7,8 +7,12 @@ exports.onCreatePage = async ({ page, actions }) => {
 
   if (page.path.match(/^\/gallery/)) {
     page.matchPath = "/gallery/*"
+    createPage(page)
+  }
 
-    // Update the page.
+  if (page.path.match(/^\/search/)) {
+    console.log("in search here")
+    page.matchPath = "/search/*"
     createPage(page)
   }
 }
