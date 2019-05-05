@@ -7,6 +7,7 @@ import PropTypes from "prop-types"
 
 import Title from "../../components/Title/Title"
 import Feed from "../../components/Feed/Feed"
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
 
 const mapStateToProps = state => ({
   savedArtists: state.savedArtists.slice().reverse(),
@@ -37,7 +38,7 @@ const SavedArtists = ({ savedArtists }) => {
       <Title>Your liked Artists</Title>
       <Query query={SAVED_ARTISTS} variables={{ slugs: savedArtists }}>
         {({ loading, error, data }) => {
-          if (loading) return "Loading..."
+          if (loading) return <LoadingSpinner />
           if (error) return `Error! ${error.message}`
           return <Feed ArtistsData={data.artists} />
         }}

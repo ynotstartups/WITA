@@ -23,12 +23,10 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <div style={{ height: "100%" }}>
         <Header />
-        <div style={{ padding: `1.45rem` }}>
-          <main>{children}</main>
-        </div>
-      </>
+        <main>{children}</main>
+      </div>
     )}
   />
 )

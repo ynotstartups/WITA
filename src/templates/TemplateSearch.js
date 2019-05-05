@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 
 import Title from "../components/Title/Title"
 import Feed from "../components/Feed/Feed"
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner"
 
 // cannot reuse fragments because `GraphQL error on Artsy side
 // named fragment spread is currently not supported`
@@ -32,7 +33,7 @@ const TemplateSearch = ({ query }) => {
       <Title>Searching artists with name {query}</Title>
       <Query query={SEARCH_ARTISTS} variables={{ query }}>
         {({ loading, error, data }) => {
-          if (loading) return "Loading..."
+          if (loading) return <LoadingSpinner />
           if (error) return `Error! ${error.message}`
           return (
             <Feed ArtistsData={data.search.edges.map(({ node }) => node)} />

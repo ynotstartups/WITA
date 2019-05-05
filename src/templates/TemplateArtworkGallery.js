@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 
 import { withApollo } from "react-apollo"
 import ArtworkGallery from "../components/ArtworkGallery/ArtworkGallery"
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner"
 
 const ArtistImages = gql`
   query ArtistImages($id: String!, $page: Int!) {
@@ -79,16 +80,14 @@ const PageArtistGallery = ({ client, id }) => {
 
   // TODO centered title
   return (
-    <>
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={fetchPhotos}
-        hasMore={!state.ended}
-        loader={<div key={0}>Loading ...</div>}
-      >
-        {state.photos.length !== 0 && <ArtworkGallery photos={state.photos} />}
-      </InfiniteScroll>
-    </>
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={fetchPhotos}
+      hasMore={!state.ended}
+      loader={<LoadingSpinner key={0} />}
+    >
+      {state.photos.length !== 0 && <ArtworkGallery photos={state.photos} />}
+    </InfiniteScroll>
   )
 }
 
