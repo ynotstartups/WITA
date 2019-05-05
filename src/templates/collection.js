@@ -8,7 +8,6 @@ import SEO from "../components/seo"
 import ArtistCard from "../components/ArtistCard/ArtistCard"
 
 const Collection = props => {
-  console.log(props)
   const { title } = props.pageContext
   return (
     <Layout>

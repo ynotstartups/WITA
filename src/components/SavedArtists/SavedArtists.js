@@ -36,7 +36,7 @@ const SavedArtists = ({ savedArtists }) => {
   return (
     <>
       <Typography variant="h2" gutterBottom align={"center"}>
-        Your saved Artists
+        Your liked Artists
       </Typography>
       <Query query={SAVED_ARTISTS} variables={{ slugs: savedArtists }}>
         {({ loading, error, data }) => {

@@ -11,7 +11,6 @@ exports.onCreatePage = async ({ page, actions }) => {
   }
 
   if (page.path.match(/^\/search/)) {
-    console.log("in search here")
     page.matchPath = "/search/*"
     createPage(page)
   }

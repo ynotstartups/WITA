@@ -4,6 +4,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import { withStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
+import Button from "@material-ui/core/Button"
 
 import Link from "../Link"
 import HeaderSavedArtist from "./HeaderSavedArtist/HeaderSavedArtist"
@@ -23,9 +24,22 @@ const Header = ({ classes }) => (
         </Typography>
       </Link>
       <HeaderSearchBar />
-      <Link to="/" className={classes.link}>
-        <HeaderSavedArtist />
-      </Link>
+      <Button
+        component={Link}
+        className={classes.noStyledLink}
+        to="/collections/"
+        color="inherit"
+      >
+        Collections
+      </Button>
+      <Button
+        component={Link}
+        className={classes.noStyledLink}
+        to="/"
+        color="inherit"
+      >
+        Likes
+      </Button>
     </Toolbar>
   </AppBar>
 )
@@ -38,6 +52,12 @@ const styles = theme => ({
       display: "none",
     },
   },
+  noStyledLink: {
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none",
+    },
+  },
   link: {
     textDecoration: "none",
     color: "inherit",
@@ -45,6 +65,9 @@ const styles = theme => ({
       textDecoration: "none",
     },
     marginRight: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
 })
 
