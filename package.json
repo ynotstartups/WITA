@@ -28,6 +28,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-jss": "^8.6.1",
+    "react-redux": "^7.0.3",
+    "redux-starter-kit": "^0.5.1",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {

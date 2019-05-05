@@ -8,8 +8,16 @@
 /* eslint-disable import/prefer-default-export, react/prop-types */
 
 import React from "react"
-import TopLayout from "./TopLayout"
+import { Provider } from "react-redux"
+
+import TopLayout from "./src/TopLayout"
+import createStore from "./src/redux/store"
 
 export const wrapRootElement = ({ element }) => {
-  return <TopLayout>{element}</TopLayout>
+  const store = createStore()
+  return (
+    <Provider store={store}>
+      <TopLayout>{element}</TopLayout>
+    </Provider>
+  )
 }
