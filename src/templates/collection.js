@@ -1,34 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Grid from "@material-ui/core/Grid"
-import { Typography } from "@material-ui/core"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ArtistCard from "../components/ArtistCard/ArtistCard"
+import Title from "../components/Title/Title"
+import Feed from "../components/Feed/Feed"
 
 const Collection = props => {
   const { title } = props.pageContext
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Typography variant="h2" gutterBottom align={"center"}>
-        {title}
-      </Typography>
-      <Grid container spacing={2}>
-        {props.data.artsy.artists.map(
-          ({ name, displayLabel, id, href, imageUrl }) => (
-            <Grid item xs={12} sm={6} md={3} key={id}>
-              <ArtistCard
-                displayLabel={displayLabel}
-                href={href}
-                imageUrl={imageUrl}
-                id={id}
-              />
-            </Grid>
-          )
-        )}
-      </Grid>
+      <Title>{title}</Title>
+      <Feed ArtistsData={props.data.artsy.artists} />
     </Layout>
   )
 }
@@ -43,7 +27,6 @@ export const query = graphql`
         displayLabel
         href
         imageUrl
-        name
       }
     }
   }

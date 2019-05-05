@@ -1,5 +1,4 @@
 import React from "react"
-import slug from "slug"
 import Typography from "@material-ui/core/Typography"
 import { graphql } from "gatsby"
 import { withStyles } from "@material-ui/core/styles"
@@ -7,6 +6,7 @@ import { withStyles } from "@material-ui/core/styles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Link from "../components/Link"
+import Title from "../components/Title/Title"
 
 const IndexPage = props => {
   const { classes } = props
@@ -15,9 +15,7 @@ const IndexPage = props => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <div className={classes.container}>
-        <Typography variant="h2" gutterBottom align={"center"}>
-          Collections
-        </Typography>
+        <Title>Collections</Title>
         {props.data.allCollectionsJson.edges.map(({ node }) => {
           const { title, path } = node
           return (

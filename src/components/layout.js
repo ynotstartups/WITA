@@ -25,12 +25,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Header />
-        <div
-          style={{
-            margin: `0 auto`,
-            padding: `1.45rem 40px`,
-          }}
-        >
+        <div style={{ padding: `1.45rem` }}>
           <main>{children}</main>
         </div>
       </>
