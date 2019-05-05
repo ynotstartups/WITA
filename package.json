@@ -9,7 +9,6 @@
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "^4.0.0-beta.0",
     "apollo-boost": "^0.3.1",
-    "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.41",
     "gatsby-plugin-manifest": "^2.1.1",
@@ -17,13 +16,9 @@
     "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-page-creator": "^2.0.12",
     "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sharp": "^2.0.36",
-    "gatsby-plugin-styled-components": "^3.0.7",
-    "gatsby-plugin-typescript": "^2.0.13",
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-source-graphql": "^2.0.18",
     "gatsby-transformer-json": "^2.1.11",
-    "gatsby-transformer-sharp": "^2.1.19",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
     "isomorphic-fetch": "^2.2.1",
@@ -36,8 +31,7 @@
     "react-jss": "^8.6.1",
     "react-photo-gallery": "^7.0.2",
     "react-redux": "^7.0.3",
-    "redux-starter-kit": "^0.5.1",
-    "styled-components": "^4.2.0"
+    "redux-starter-kit": "^0.5.1"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1",
