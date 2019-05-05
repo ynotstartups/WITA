@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+main {
+  padding: 1.5rem;
+}
+
 html::before,
 html::after {
   box-sizing: "inherit";
