@@ -1,0 +1,16 @@
+/* I need this css because using CSSBaseLine in MUI is not included in SSR */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: "border-box";
+}
+
+body {
+  margin: 0;
+}
+
+html::before,
+html::after {
+  box-sizing: "inherit";
+}
