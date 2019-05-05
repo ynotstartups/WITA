@@ -11,6 +11,8 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "../components/Header/Header"
 
+import "../baseline.css"
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`

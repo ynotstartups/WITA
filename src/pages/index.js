@@ -6,14 +6,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SavedArtists from "../components/SavedArtists/SavedArtists"
 
-import "../baseline.css"
-
 // TODO patch ./node_modules/graphql/utilities/assertValidName.js
 
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Home" keywords={[`artist`, `WhoIsThisArtist`]} />
+      <SEO title="Home" keywords={[`WhoIsThisArtist`]} />
       <SavedArtists />
     </Layout>
   )

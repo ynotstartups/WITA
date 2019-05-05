@@ -13,7 +13,7 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="collections" keywords={[`artists`]} />
       <div className={classes.container}>
         <Title>Collections</Title>
         {props.data.allCollectionsJson.edges.map(({ node }) => {
