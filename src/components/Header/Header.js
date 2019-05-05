@@ -10,7 +10,7 @@ import HeaderSavedArtist from "./HeaderSavedArtist/HeaderSavedArtist"
 import HeaderSearchBar from "./HeaderSearchBar/HeaderSearchBar"
 
 const Header = ({ classes }) => (
-  <AppBar position="static">
+  <AppBar position="static" className={classes.container}>
     <Toolbar>
       <Link to="/" className={classes.link}>
         <Typography
@@ -31,6 +31,7 @@ const Header = ({ classes }) => (
 )
 
 const styles = theme => ({
+  container: { color: "white" },
   siteName: {
     pointerEvents: "none",
     [theme.breakpoints.down("sm")]: {
