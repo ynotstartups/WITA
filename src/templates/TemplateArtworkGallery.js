@@ -12,6 +12,7 @@ const ArtistImages = gql`
     artist(id: $id) {
       displayLabel
       artworks(page: $page) {
+        title
         image {
           width
           height
@@ -64,10 +65,11 @@ const PageArtistGallery = ({ client, id }) => {
     })
 
     const { artworks, displayLabel } = data.artist
-    const photos = artworks.map(({ image }) => ({
+    const photos = artworks.map(({ image, title }) => ({
       width: image.width,
       height: image.height,
       src: image.url,
+      title,
     }))
 
     let ended = false
@@ -78,7 +80,6 @@ const PageArtistGallery = ({ client, id }) => {
     dispatch(appendPhotos(displayLabel, photos, ended))
   }
 
-  // TODO centered title
   return (
     <InfiniteScroll
       pageStart={0}
