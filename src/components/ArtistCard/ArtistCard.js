@@ -7,15 +7,30 @@ import CardHeader from "@material-ui/core/CardHeader"
 import CardActions from "@material-ui/core/CardActions"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import PropTypes from "prop-types"
+import { navigate } from "@reach/router"
 
 import ArtistSaveButton from "./ArtistSaveButton/ArtistSaveButton"
+
+const AnchorButton = ({ href, children }) => {
+  return (
+    <Button
+      size="small"
+      color="primary"
+      rel="noopener noreferrer"
+      target="_blank"
+      href={href}
+    >
+      {children}
+    </Button>
+  )
+}
 
 const ArtistCard = ({ imageUrl, displayLabel, id, href, classes }) => (
   <Card className={classes.card}>
     <CardHeader action={<ArtistSaveButton id={id} />} title={displayLabel} />
     <CardActionArea
       onClick={() => {
-        // navigate(`/gallery/${id}`);
+        navigate(`/gallery/${id}`)
       }}
     >
       <CardMedia
@@ -24,37 +39,20 @@ const ArtistCard = ({ imageUrl, displayLabel, id, href, classes }) => (
       />
     </CardActionArea>
     <CardActions>
-      <Button
-        size="small"
-        color="primary"
-        onClick={() => {
-          window.open(`https://www.artsy.net${href}`)
-        }}
-      >
-        Artsy
-      </Button>
-      <Button
-        size="small"
-        color="primary"
-        onClick={() => {
-          window.open(
-            `https://en.wikipedia.org/wiki/${displayLabel.replace(/ /g, "_")}`
-          )
-        }}
+      <AnchorButton href={`https://www.artsy.net${href}`}>Artsy</AnchorButton>
+      <AnchorButton
+        href={`https://en.wikipedia.org/wiki/${displayLabel.replace(
+          / /g,
+          "_"
+        )}`}
       >
         Wikipedia
-      </Button>
-      <Button
-        size="small"
-        color="primary"
-        onClick={() => {
-          window.open(
-            `https://www.google.com/search?tbm=isch&q=${displayLabel}`
-          )
-        }}
+      </AnchorButton>
+      <AnchorButton
+        href={`https://www.google.com/search?tbm=isch&q=${displayLabel}`}
       >
         Google
-      </Button>
+      </AnchorButton>
     </CardActions>
   </Card>
 )

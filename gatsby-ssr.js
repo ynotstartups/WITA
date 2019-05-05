@@ -9,7 +9,9 @@
 
 import React from "react"
 import { Provider } from "react-redux"
+import { ApolloProvider } from "react-apollo"
 
+import client from "./src/apollo"
 import TopLayout from "./src/TopLayout"
 import createStore from "./src/redux/store"
 
@@ -17,7 +19,9 @@ export const wrapRootElement = ({ element }) => {
   const store = createStore()
   return (
     <Provider store={store}>
-      <TopLayout>{element}</TopLayout>
+      <ApolloProvider client={client}>
+        <TopLayout>{element}</TopLayout>
+      </ApolloProvider>
     </Provider>
   )
 }
