@@ -1,62 +1,57 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import IconButton from "@material-ui/core/IconButton"
-import { connect } from "react-redux"
 import Favorite from "@material-ui/icons/Favorite"
 import PropTypes from "prop-types"
+import { Mutation, withApollo, Query } from "react-apollo"
+import gql from "graphql-tag"
 
-import { saveArtist, removeArtist } from "../../../redux/actions"
-
-function mapStateToProps(state) {
-  return {
-    savedArtists: state.savedArtists,
+const SAVED_ARTISTS = gql`
+  {
+    savedArtists @client
   }
-}
+`
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatchSaveArtist: id => dispatch(saveArtist(id)),
-    dispatchRemoveArtist: id => dispatch(removeArtist(id)),
+const TOGGLE_SAVE = gql`
+  mutation ToggleSave($id: String!) {
+    toggleSave(id: $id) @client
   }
-}
+`
 
-function ArtistSaveButton({
-  id,
-  savedArtists,
-  dispatchSaveArtist,
-  dispatchRemoveArtist,
-}) {
+function ArtistSaveButton({ id, client }) {
   const [isSaved, setIsSaved] = useState(false)
 
-  // TODO figure out how to use redux with gastby/SSR
-  useEffect(() => {
-    setIsSaved(savedArtists.includes(id))
-  })
-
-  const handleClick = () => {
-    if (isSaved) {
-      dispatchRemoveArtist(id)
-    } else {
-      dispatchSaveArtist(id)
-    }
-  }
-
   return (
-    <IconButton onClick={handleClick}>
-      <Favorite color={isSaved ? "secondary" : "inherit"} />
-    </IconButton>
+    <Query query={SAVED_ARTISTS}>
+      {({ loading, error, data }) => {
+        if (data) {
+          setIsSaved(data.savedArtists.includes(id))
+        }
+
+        return (
+          <Mutation mutation={TOGGLE_SAVE} variables={{ id }}>
+            {toggleSave => (
+              <IconButton
+                onClick={() => {
+                  toggleSave().then(({ data }) => {
+                    // toggleSave is returned by resolver
+                    // is it possible to change name
+                    setIsSaved(data.toggleSave)
+                  })
+                }}
+              >
+                <Favorite color={isSaved ? "secondary" : "inherit"} />
+              </IconButton>
+            )}
+          </Mutation>
+        )
+      }}
+    </Query>
   )
 }
 
 ArtistSaveButton.propTypes = {
   id: PropTypes.string.isRequired,
-  savedArtists: PropTypes.arrayOf(PropTypes.string).isRequired,
-  dispatchSaveArtist: PropTypes.func.isRequired,
-  dispatchRemoveArtist: PropTypes.func.isRequired,
+  client: PropTypes.object.isRequired,
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ArtistSaveButton)
-
-export { ArtistSaveButton as UnconnectedArtistSaveButton }
+export default withApollo(ArtistSaveButton)

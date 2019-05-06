@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { withTheme } from "@material-ui/core/styles"
-import Typography from "@material-ui/core/Typography"
 import GridListTileBar from "@material-ui/core/GridListTileBar"
 import OpenInNew from "@material-ui/icons/OpenInNew"
 import IconButton from "@material-ui/core/IconButton"
@@ -30,9 +29,7 @@ const Artwork = ({
     cont.top = top
   }
 
-  console.log("photo", photo)
-
-  const { sm, md, lg } = theme.breakpoints.values
+  const { sm } = theme.breakpoints.values
   let height = 16
   let width = 0
   if (window.innerWidth >= sm) {

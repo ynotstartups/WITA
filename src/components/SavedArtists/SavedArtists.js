@@ -1,53 +1,50 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
-import { connect } from "react-redux"
 import { navigate } from "@reach/router"
-import PropTypes from "prop-types"
+import Grid from "@material-ui/core/Grid"
 
 import Title from "../../components/Title/Title"
-import Feed from "../../components/Feed/Feed"
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
-
-const mapStateToProps = state => ({
-  savedArtists: state.savedArtists.slice().reverse(),
-})
+import ArtistCardWithQuery from "../../components/ArtistCard/ArtistCardWithQuery"
 
 const SAVED_ARTISTS = gql`
-  query Artists($slugs: [String]) {
-    artists(slugs: $slugs) {
-      id
-      displayLabel
-      href
-      imageUrl
-      name
-    }
+  {
+    savedArtists @client
   }
 `
 
-const SavedArtists = ({ savedArtists }) => {
+const SavedArtists = () => {
+  const [savedArtists, setSavedArtists] = useState(undefined)
+
   useEffect(() => {
-    if (savedArtists.length === 0) {
-      // TODO: can I pass a name instead of hardcoding path?
+    if (savedArtists && savedArtists.length === 0) {
       navigate("/collections/onboarding")
     }
-  }, [savedArtists.length])
+  })
 
   return (
     <>
       <Title>Your liked Artists</Title>
-      <Query query={SAVED_ARTISTS} variables={{ slugs: savedArtists }}>
+      <Query query={SAVED_ARTISTS}>
         {({ loading, error, data }) => {
           if (loading) return <LoadingSpinner />
           if (error) return `Error! ${error.message}`
-          return <Feed ArtistsData={data.artists} />
+
+          setSavedArtists(data.savedArtists)
+          return (
+            <Grid container spacing={2}>
+              {data.savedArtists.map(id => (
+                <Grid item xs={12} sm={6} md={3} key={id}>
+                  <ArtistCardWithQuery id={id} />
+                </Grid>
+              ))}
+            </Grid>
+          )
         }}
       </Query>
     </>
   )
 }
 
-export default connect(mapStateToProps)(SavedArtists)
-SavedArtists.propTypes = {
-  savedArtists: PropTypes.arrayOf(PropTypes.string).isRequired,
-}
+export default SavedArtists
