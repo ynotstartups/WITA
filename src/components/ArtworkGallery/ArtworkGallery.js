@@ -35,6 +35,7 @@ ArtworkGallery.propTypes = {
       width: PropTypes.number.isRequired,
       height: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
     })
   ).isRequired,
   theme: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types

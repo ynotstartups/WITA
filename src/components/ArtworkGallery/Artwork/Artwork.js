@@ -1,9 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { withTheme } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
+import GridListTileBar from "@material-ui/core/GridListTileBar"
+import OpenInNew from "@material-ui/icons/OpenInNew"
+import IconButton from "@material-ui/core/IconButton"
+import { withStyles } from "@material-ui/core/styles"
+import Tooltip from "@material-ui/core/Tooltip"
 
 const cont = {
-  cursor: "pointer",
   overflow: "hidden",
   position: "relative",
 }
@@ -17,12 +22,15 @@ const Artwork = ({
   direction,
   top,
   left,
+  classes,
 }) => {
   if (direction === "column") {
     cont.position = "absolute"
     cont.left = left
     cont.top = top
   }
+
+  console.log("photo", photo)
 
   const { sm, md, lg } = theme.breakpoints.values
   let height = 16
@@ -35,11 +43,14 @@ const Artwork = ({
     <div
       style={{
         display: "flex",
-        height: photo.height,
-        width: photo.width,
+        height: photo.height - height,
+        width: photo.width - width,
+        marginVertical: height / 2,
+        marginHorizontal: width / 2,
         ...cont,
         justifyContent: "center",
       }}
+      className={classes.container}
     >
       <img
         src={photo.src}
@@ -47,17 +58,47 @@ const Artwork = ({
         width={photo.width - width}
         alt={photo.title}
       />
+      <GridListTileBar
+        title={photo.title}
+        className={classes.bar}
+        actionIcon={
+          <Tooltip
+            title="Open In Artsy"
+            aria-label="Open In Artsy"
+            placement="top"
+          >
+            <IconButton
+              aria-label="Open In Artsy"
+              href={`https://www.artsy.net${photo.href}`}
+              rel="noopener noreferrer"
+              target="_blank"
+              className={classes.button}
+            >
+              <OpenInNew style={{ color: "white" }} />
+            </IconButton>
+          </Tooltip>
+        }
+      />
     </div>
   )
 }
 
-const styles = theme => ({
+const styles = () => ({
   container: {
-    paddingBottom: theme.spacing(1),
+    "&:hover $bar": {
+      visibility: "visible",
+    },
+  },
+  bar: {
+    padding: "3px 3px 3px 0",
+    visibility: "hidden",
+  },
+  button: {
+    marginVertical: 5,
   },
 })
 
-export default withTheme(Artwork)
+export default withTheme(withStyles(styles)(Artwork))
 
 Artwork.propTypes = {
   photo: PropTypes.object.isRequired,

@@ -13,6 +13,7 @@ const ArtistImages = gql`
       displayLabel
       artworks(page: $page) {
         title
+        href
         image {
           width
           height
@@ -65,10 +66,11 @@ const PageArtistGallery = ({ client, id }) => {
     })
 
     const { artworks, displayLabel } = data.artist
-    const photos = artworks.map(({ image, title }) => ({
+    const photos = artworks.map(({ image, title, href }) => ({
       width: image.width,
       height: image.height,
       src: image.url,
+      href: href,
       title,
     }))
 
