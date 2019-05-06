@@ -77,11 +77,14 @@ const styles = theme => ({
     },
   },
   searchIcon: {
-    width: theme.spacing(9),
+    width: 0,
     height: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(9),
+    },
   },
   inputRoot: {
     color: "inherit",
