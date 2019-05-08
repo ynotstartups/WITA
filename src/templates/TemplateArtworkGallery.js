@@ -7,9 +7,13 @@ import { withApollo } from "react-apollo"
 import ArtworkGallery from "../components/ArtworkGallery/ArtworkGallery"
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner"
 
+// https://github.com/apollographql/apollo-client/issues/2510
+// the id field below artists is not used by me but the store needs it for
+// handing cache
 const ArtistImages = gql`
   query ArtistImages($id: String!, $page: Int!) {
     artist(id: $id) {
+      id
       displayLabel
       artworks(page: $page) {
         title
