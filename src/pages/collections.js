@@ -1,12 +1,12 @@
 import React from "react"
-import Typography from "@material-ui/core/Typography"
 import { graphql } from "gatsby"
 import { withStyles } from "@material-ui/core/styles"
+import Grid from "@material-ui/core/Grid"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Link from "../components/Link"
 import Title from "../components/Title/Title"
+import CollectionItem from "../components/CollectionItem/CollectionItem"
 
 const IndexPage = props => {
   const { classes } = props
@@ -14,16 +14,22 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title="collections" keywords={[`artists`]} />
+      <Title>Collections</Title>
       <div className={classes.container}>
-        <Title>Collections</Title>
-        {props.data.allCollectionsJson.edges.map(({ node }) => {
-          const { title, path } = node
-          return (
-            <Link key={title} to={`/collections/${path}`} color="primary">
-              <Typography variant="h5">{title}</Typography>
-            </Link>
-          )
-        })}
+        <Grid container>
+          {props.data.allCollectionsJson.edges.map(({ node }) => {
+            const { title, path, image } = node
+            return (
+              <Grid item xs={6} sm={4} md={3} key={title}>
+                <CollectionItem
+                  href={`/collections/${path}`}
+                  title={title}
+                  backgroundImageUrl={image}
+                />
+              </Grid>
+            )
+          })}
+        </Grid>
       </div>
     </Layout>
   )
@@ -45,6 +51,7 @@ export const query = graphql`
       edges {
         node {
           title
+          image
           path
         }
       }

@@ -61,5 +61,6 @@ module.exports = {
         policy: [{ userAgent: "*", disallow: "" }],
       },
     },
+    `gatsby-plugin-styled-components`,
   ],
 }
