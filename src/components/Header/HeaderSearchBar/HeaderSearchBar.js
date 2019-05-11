@@ -23,39 +23,33 @@ const HeaderSearchBar = ({ classes }) => {
   const [query, setQuery] = useState("")
 
   return (
-    <>
-      <div className={classes.search}>
-        <form
-          onSubmit={event => handleSearchSubmit(event, query)}
-          action="#"
-          method="get"
-        >
-          <div className={classes.searchFrom}>
-            <Input
-              placeholder="Search by Artist name…"
-              type="search"
-              name="query"
-              value={query}
-              onChange={event => {
-                setQuery(event.target.value)
-              }}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              disableUnderline
-            />
-            <Button
-              className={classes.searchIcon}
-              color="inherit"
-              type="submit"
-            >
-              <SearchIcon />
-            </Button>
-          </div>
-        </form>
-      </div>
-    </>
+    <div className={classes.search}>
+      <form
+        onSubmit={event => handleSearchSubmit(event, query)}
+        action="#"
+        method="get"
+      >
+        <div className={classes.searchFrom}>
+          <Input
+            placeholder="Search by Artist name…"
+            type="search"
+            name="query"
+            value={query}
+            onChange={event => {
+              setQuery(event.target.value)
+            }}
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            disableUnderline
+          />
+          <Button className={classes.searchIcon} color="inherit" type="submit">
+            <SearchIcon />
+          </Button>
+        </div>
+      </form>
+    </div>
   )
 }
 

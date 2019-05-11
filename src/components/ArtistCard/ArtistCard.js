@@ -19,6 +19,7 @@ const AnchorButton = ({ href, children }) => {
       rel="noopener noreferrer"
       target="_blank"
       href={href}
+      style={{ color: "black" }}
     >
       {children}
     </Button>
@@ -26,7 +27,7 @@ const AnchorButton = ({ href, children }) => {
 }
 
 const ArtistCard = ({ imageUrl, displayLabel, id, href, classes }) => (
-  <Card className={classes.card}>
+  <Card className={classes.card} elevation={2}>
     <CardHeader action={<ArtistSaveButton id={id} />} title={displayLabel} />
     <CardActionArea
       onClick={() => {
@@ -63,6 +64,7 @@ const styles = () => ({
     height: "100%",
     flexDirection: "column",
     justifyContent: "space-between",
+    border: "black 1px solid",
   },
   image: {
     // LOL Artsy cropped it to 230

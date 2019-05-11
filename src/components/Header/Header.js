@@ -10,7 +10,7 @@ import Link from "../Link"
 import HeaderSearchBar from "./HeaderSearchBar/HeaderSearchBar"
 
 const Header = ({ classes }) => (
-  <AppBar position="static" className={classes.container}>
+  <AppBar position="sticky" className={classes.container}>
     <Toolbar>
       <Link to="/" className={classes.link}>
         <Typography
@@ -44,7 +44,7 @@ const Header = ({ classes }) => (
 )
 
 const styles = theme => ({
-  container: { color: "white" },
+  container: { color: "black" },
   siteName: {
     pointerEvents: "none",
     [theme.breakpoints.down("sm")]: {
