@@ -26,10 +26,10 @@ const Header = ({ classes }) => (
       <Button
         component={Link}
         className={classes.noStyledLink}
-        to="/collections/"
+        to="/movements/"
         color="inherit"
       >
-        Collections
+        Movements
       </Button>
       <Button
         component={Link}

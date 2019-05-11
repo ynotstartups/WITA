@@ -19,7 +19,7 @@ const SavedArtists = () => {
 
   useEffect(() => {
     if (savedArtists && savedArtists.length === 0) {
-      navigate("/collections/onboarding")
+      navigate("/movements/onboarding")
     }
   })
 

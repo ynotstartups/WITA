@@ -13,16 +13,16 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title="collections" keywords={[`artists`]} />
-      <Title>Collections</Title>
+      <SEO title="movements" keywords={[`artists`]} />
+      <Title>Movements</Title>
       <div className={classes.container}>
         <Grid container>
-          {props.data.allCollectionsJson.edges.map(({ node }) => {
+          {props.data.allMovementsJson.edges.map(({ node }) => {
             const { title, path, image } = node
             return (
               <Grid item xs={6} sm={4} md={3} key={title}>
                 <CollectionItem
-                  href={`/collections/${path}`}
+                  href={`/movements/${path}`}
                   title={title}
                   backgroundImageUrl={image}
                 />
@@ -47,7 +47,7 @@ export default withStyles(styles)(IndexPage)
 
 export const query = graphql`
   {
-    allCollectionsJson(filter: { path: { ne: "onboarding" } }) {
+    allMovementsJson(filter: { path: { ne: "onboarding" } }) {
       edges {
         node {
           title
