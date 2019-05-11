@@ -1,0 +1,31 @@
+{
+  "title": "Renaissance",
+  "path": "renaissance",
+  "image": "https://d32dm0rphc51dk.cloudfront.net/qGR1BhRo8VxEu7JLHE7HDA/large.jpg",
+  "artists": [
+    "michelangelo-buonarroti",
+    "raphael",
+    "sandro-botticelli",
+    "donatello",
+    "titian",
+    "filippo-brunelleschi",
+    "michelangelo-merisi-da-caravaggio",
+    "giotto",
+    "jan-van-eyck",
+    "giorgio-vasari",
+    "hieronymus-bosch",
+    "masaccio",
+    "jacopo-tintoretto",
+    "fra-angelico",
+    "donato-bramante",
+    "lorenzo-ghiberti",
+    "giovanni-bellini",
+    "paolo-veronese",
+    "sofonisba-anguissola",
+    "lucas-cranach-the-elder",
+    "fra-filippo-lippi",
+    "paolo-uccello",
+    "correggio",
+    "benvenuto-cellini"
+  ]
+}
