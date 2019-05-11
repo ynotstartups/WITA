@@ -1,17 +1,16 @@
 import React from "react"
 import { Link } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
 
 import styles from "./CollectionItem.module.css"
 
-function CollectionItem({ href, title, backgroundImageUrl }) {
+function CollectionItem({ href, title, imageFluid }) {
   return (
-    <Link
-      to={href}
-      className={styles.container}
-      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
-    >
-      <div className={styles.title}>{title}</div>
-    </Link>
+    <BackgroundImage fluid={imageFluid}>
+      <Link to={href} className={styles.container}>
+        <div className={styles.title}>{title}</div>
+      </Link>
+    </BackgroundImage>
   )
 }
 
