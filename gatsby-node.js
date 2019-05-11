@@ -21,7 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(
     `
       {
-        allCollectionsJson {
+        allMovementsJson {
           edges {
             node {
               title
@@ -39,11 +39,11 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create image post pages.
-    const collectionTemplate = path.resolve(`src/templates/collection.js`)
-    result.data.allCollectionsJson.edges.forEach(edge => {
+    const collectionTemplate = path.resolve(`src/templates/TemplateMovement.js`)
+    result.data.allMovementsJson.edges.forEach(edge => {
       const { artists, title, path, image } = edge.node
       createPage({
-        path: `/collections/${path}/`,
+        path: `/movements/${path}/`,
         component: slash(collectionTemplate),
         context: {
           title,

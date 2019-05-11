@@ -29,7 +29,7 @@ export default withStyles(styles)(IndexPage)
 
 export const query = graphql`
   {
-    allCollectionsJson {
+    allMovementsJson {
       edges {
         node {
           title
