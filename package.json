@@ -27,6 +27,7 @@
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
     "isomorphic-fetch": "^2.2.1",
+    "patch-package": "^6.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
@@ -59,7 +60,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "deploy": "gatsby build && gh-pages -d public",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "postinstall": "patch-package"
   },
   "repository": {
     "type": "git",
