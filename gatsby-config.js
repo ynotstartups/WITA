@@ -22,19 +22,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `WhoIsThisArtists?`,
-        short_name: `Artist?`,
-        start_url: `/`,
-        background_color: `#d2a32d`,
-        theme_color: `#d2a32d`,
-        display: `standalone`,
-        icon: `src/images/icon.png`,
-      },
-    },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: "gatsby-source-graphql",
       options: {
