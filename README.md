@@ -2,6 +2,8 @@
 
 https://whoisthisartist.com/
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5ad551ed-1979-4104-a11a-599aed49d039/deploy-status)](https://app.netlify.com/sites/whoisthisartist/deploys)
+
 An utility tool to search artists and save them for further reference.
 
 TODOs: https://trello.com/b/6A4fdt5O/who-is-this-artist
