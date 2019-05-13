@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Who is this artist?`,
     siteUrl: `https://whoisthisartist.com`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `An utility tool to quickly get artists' information and save for later`,
+    author: `@ynotstartups`,
   },
   plugins: [
     {
