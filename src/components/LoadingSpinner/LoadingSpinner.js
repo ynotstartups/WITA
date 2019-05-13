@@ -7,7 +7,7 @@ function LoadingSpinner(props) {
   const { classes } = props
   return (
     <div className={classes.container} {...props}>
-      <CircularProgress className={classes.progress} />
+      <CircularProgress className={classes.progress} color="secondary" />
     </div>
   )
 }
