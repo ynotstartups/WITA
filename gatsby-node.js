@@ -39,7 +39,9 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create image post pages.
-    const collectionTemplate = path.resolve(`src/templates/TemplateMovement.js`)
+    const collectionTemplate = path.resolve(
+      `src/templates/TemplateMovement.tsx`
+    )
     result.data.allMovementsJson.edges.forEach(edge => {
       const { artists, title, path, image } = edge.node
       createPage({

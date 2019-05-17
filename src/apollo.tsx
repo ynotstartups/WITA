@@ -3,12 +3,16 @@ import fetch from "isomorphic-fetch"
 
 const localStorageKey = "apolloStore"
 
-function saveStateToLocalStorage(state) {
+interface Storage {
+  savedArtists: string[]
+}
+
+function saveStateToLocalStorage(state: Storage) {
   localStorage.setItem(localStorageKey, JSON.stringify(state))
 }
 
-const getLocalState = () => {
-  let localStorageState
+const getLocalState = (): Storage => {
+  let localStorageState: Storage
 
   try {
     if (typeof localStorage !== `undefined`) {
@@ -25,15 +29,19 @@ const getLocalState = () => {
   )
 }
 
+interface Variable {
+  id: string
+}
+
 const client = new ApolloClient({
   uri: "https://metaphysics-production.artsy.net/",
   fetch,
   resolvers: {
     Mutation: {
-      toggleSave: (_root, variables, { cache, getCacheKey, client }) => {
+      toggleSave: (_root, variables: Variable, { client }) => {
         const id = variables.id
         let { savedArtists } = getLocalState()
-        let isSaved = null
+        let isSaved = false
 
         // save
         if (!savedArtists.includes(id)) {

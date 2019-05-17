@@ -4,9 +4,9 @@ import { Query } from "react-apollo"
 import { navigate } from "@reach/router"
 import Grid from "@material-ui/core/Grid"
 
-import Title from "../../components/Title/Title"
-import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner"
-import ArtistCardWithQuery from "../../components/ArtistCard/ArtistCardWithQuery"
+import Title from "../Title/Title"
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
+import ArtistCardWithQuery from "../ArtistCard/ArtistCardWithQuery"
 
 const SAVED_ARTISTS = gql`
   {
@@ -14,7 +14,7 @@ const SAVED_ARTISTS = gql`
   }
 `
 
-const SavedArtists = () => {
+const SavedArtists: React.FunctionComponent = () => {
   const [savedArtists, setSavedArtists] = useState(undefined)
 
   useEffect(() => {

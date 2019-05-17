@@ -2,23 +2,47 @@ import React from "react"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
-import { withStyles } from "@material-ui/core/styles"
-import PropTypes from "prop-types"
+import { withStyles, createStyles, WithStyles } from "@material-ui/core/styles"
 import Button from "@material-ui/core/Button"
 
 import Link from "../Link"
 import HeaderSearchBar from "./HeaderSearchBar/HeaderSearchBar"
 
-const Header = ({ classes }) => (
+const styles = theme =>
+  createStyles({
+    container: { color: "black" },
+    siteName: {
+      pointerEvents: "none",
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
+    },
+    noStyledLink: {
+      textDecoration: "none",
+      "&:hover": {
+        textDecoration: "none",
+      },
+    },
+    link: {
+      textDecoration: "none",
+      color: "inherit",
+      "&:hover": {
+        textDecoration: "none",
+      },
+      marginRight: "1rem",
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
+    },
+  })
+
+interface Props extends WithStyles<typeof styles> {}
+
+const Header: React.FunctionComponent<Props> = ({ classes }) => (
   <AppBar position="sticky" className={classes.container}>
     <Toolbar>
       <Link to="/" className={classes.link}>
-        <Typography
-          variant="h6"
-          color="inherit"
-          noWrap
-          className={classes.title}
-        >
+        <Typography variant="h6" color="inherit" noWrap>
           Who is this artist?
         </Typography>
       </Link>
@@ -42,36 +66,5 @@ const Header = ({ classes }) => (
     </Toolbar>
   </AppBar>
 )
-
-const styles = theme => ({
-  container: { color: "black" },
-  siteName: {
-    pointerEvents: "none",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  noStyledLink: {
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "none",
-    },
-  },
-  link: {
-    textDecoration: "none",
-    color: "inherit",
-    "&:hover": {
-      textDecoration: "none",
-    },
-    marginRight: "1rem",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-})
-
-Header.propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-}
 
 export default withStyles(styles)(Header)

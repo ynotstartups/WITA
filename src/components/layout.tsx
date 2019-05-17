@@ -6,14 +6,17 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
-import Header from "../components/Header/Header"
+import Header from "./Header/Header"
 
 import "../baseline.css"
 
-const Layout = ({ children }) => (
+interface Props {
+  children: React.ReactNode
+}
+
+const Layout: React.FunctionComponent<Props> = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -24,7 +27,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={() => (
       <div style={{ height: "100%" }}>
         <Header />
         <main>{children}</main>
@@ -32,9 +35,5 @@ const Layout = ({ children }) => (
     )}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout

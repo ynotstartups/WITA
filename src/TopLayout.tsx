@@ -5,7 +5,11 @@ import { ThemeProvider } from "@material-ui/styles"
 
 import theme from "./theme"
 
-export default function TopLayout(props) {
+interface Props {
+  children: React.ReactNode
+}
+
+const TopLayout: React.FunctionComponent<Props> = ({ children }) => {
   return (
     <React.Fragment>
       <Helmet>
@@ -24,11 +28,9 @@ export default function TopLayout(props) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="white" />
       </Helmet>
-      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </React.Fragment>
   )
 }
 
-TopLayout.propTypes = {
-  children: PropTypes.node,
-}
+export default TopLayout

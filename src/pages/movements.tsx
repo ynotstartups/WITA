@@ -1,7 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { withStyles } from "@material-ui/core/styles"
+import { withStyles, WithStyles, createStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
+import { IFluidObject } from "gatsby-background-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,28 +11,40 @@ import CollectionItem from "../components/CollectionItem/CollectionItem"
 
 // the image name need to match path name for movements
 // maybe I should add a new field with image name
-function getImageFluid(name, images) {
+function getImageFluid(name: String, images: any): IFluidObject {
   const image = images.filter(({ node }) => node.base.startsWith(name))
   const { node } = image[0]
   return node.childImageSharp.fluid
 }
 
-const IndexPage = props => {
-  const { classes } = props
+const styles = () =>
+  createStyles({
+    container: {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+    },
+  })
+
+interface Props extends WithStyles<typeof styles> {
+  data: any
+}
+
+const IndexPage: React.FunctionComponent<Props> = ({ data, classes }) => {
   return (
     <Layout>
       <SEO title="movements" keywords={[`artists`]} />
       <Title>Movements</Title>
       <div className={classes.container}>
         <Grid container>
-          {props.data.allMovementsJson.edges.map(({ node }) => {
+          {data.allMovementsJson.edges.map(({ node }) => {
             const { title, path } = node
             return (
               <Grid item xs={6} sm={4} md={3} key={title}>
                 <CollectionItem
                   href={`/movements/${path}`}
                   title={title}
-                  imageFluid={getImageFluid(path, props.data.allFile.edges)}
+                  imageFluid={getImageFluid(path, data.allFile.edges)}
                 />
               </Grid>
             )
@@ -41,14 +54,6 @@ const IndexPage = props => {
     </Layout>
   )
 }
-
-const styles = () => ({
-  container: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-})
 
 export default withStyles(styles)(IndexPage)
 

@@ -58,5 +58,6 @@ module.exports = {
         production: false,
       },
     },
+    `gatsby-plugin-typescript`,
   ],
 }

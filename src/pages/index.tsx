@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { withStyles } from "@material-ui/core/styles"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,15 +16,7 @@ const IndexPage = () => {
   )
 }
 
-const styles = () => ({
-  container: {
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-})
-
-export default withStyles(styles)(IndexPage)
+export default IndexPage
 
 export const query = graphql`
   {
