@@ -28,15 +28,38 @@ const ArtistImages = gql`
   }
 `
 
-const initialState = {
-  photos: [],
+interface Photo {
+  width: number
+  height: number
+  src: string
+  href: string
+  title: string
+}
+
+interface Action {
+  type: "append"
+  displayLabel: String
+  ended: boolean
+  photos: Photo[]
+}
+
+interface State {
+  photos: Photo[]
+  initFetchDone: boolean
+  displayLabel: string
+  page: number
+  ended: boolean
+}
+
+const initialState: State = {
+  photos: [] as Photo[],
   initFetchDone: false,
-  displayLabel: null,
-  page: 1,
+  displayLabel: "" as string,
+  page: 1 as number,
   ended: false,
 }
 
-function reducer(state, action) {
+function reducer(state: State, action: Action) {
   switch (action.type) {
     case "append":
       return {
@@ -51,7 +74,11 @@ function reducer(state, action) {
   }
 }
 
-function appendPhotos(displayLabel, photos, ended) {
+function appendPhotos(
+  displayLabel: string,
+  photos: Photo[],
+  ended: boolean
+): Action {
   return {
     type: "append",
     photos,
@@ -60,7 +87,11 @@ function appendPhotos(displayLabel, photos, ended) {
   }
 }
 
-const PageArtistGallery = ({ client, id }) => {
+interface Props {
+  id: string
+  client: any
+}
+const PageArtistGallery: React.FunctionComponent<Props> = ({ client, id }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const fetchPhotos = async () => {

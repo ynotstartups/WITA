@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TemplateSearch from "../templates/TemplateSearch"
 
-const App = () => {
+const App: React.FunctionComponent = () => {
   return (
     <Layout>
       <SEO title="search" keywords={[`artist`, `search`]} />

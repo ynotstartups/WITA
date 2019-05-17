@@ -4,8 +4,7 @@ import Button from "@material-ui/core/Button"
 import Input from "@material-ui/core/Input"
 import { fade } from "@material-ui/core/styles/colorManipulator"
 import SearchIcon from "@material-ui/icons/Search"
-import { withStyles } from "@material-ui/core/styles"
-import PropTypes from "prop-types"
+import { withStyles, createStyles, WithStyles } from "@material-ui/core/styles"
 
 const handleSearchSubmit = (event, query) => {
   event.preventDefault()
@@ -15,11 +14,56 @@ const handleSearchSubmit = (event, query) => {
     return
   }
 
-  document.activeElement.blur()
+  ;(document.activeElement as HTMLElement).blur()
   navigate(`/search/${query}`)
 }
 
-const HeaderSearchBar = ({ classes }) => {
+const styles = theme =>
+  createStyles({
+    searchFrom: {
+      display: "flex",
+      alignItems: "center",
+    },
+    search: {
+      flex: 1,
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: fade(theme.palette.common.white, 0.15),
+      "&:hover": {
+        backgroundColor: fade(theme.palette.common.white, 0.25),
+      },
+      marginRight: theme.spacing(1),
+      [theme.breakpoints.up("md")]: {
+        margin: `0 ${theme.spacing(2)}px`,
+      },
+    },
+    searchIcon: {
+      width: 0,
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      [theme.breakpoints.up("sm")]: {
+        width: theme.spacing(9),
+      },
+    },
+    inputRoot: {
+      color: "inherit",
+      flex: 1,
+    },
+    inputInput: {
+      color: "inherit",
+      paddingTop: theme.spacing(1),
+      paddingRight: theme.spacing(1),
+      paddingBottom: theme.spacing(1),
+      paddingLeft: theme.spacing(3),
+      transition: theme.transitions.create("width"),
+      width: "100%",
+    },
+  })
+
+interface Props extends WithStyles<typeof styles> {}
+
+const HeaderSearchBar: React.FunctionComponent<Props> = ({ classes }) => {
   const [query, setQuery] = useState("")
 
   return (
@@ -53,52 +97,6 @@ const HeaderSearchBar = ({ classes }) => {
   )
 }
 
-const styles = theme => ({
-  searchFrom: {
-    display: "flex",
-    alignItems: "center",
-  },
-  search: {
-    flex: 1,
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(1),
-    [theme.breakpoints.up("md")]: {
-      margin: `0 ${theme.spacing(2)}px`,
-    },
-  },
-  searchIcon: {
-    width: 0,
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9),
-    },
-  },
-  inputRoot: {
-    color: "inherit",
-    flex: 1,
-  },
-  inputInput: {
-    color: "inherit",
-    paddingTop: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-    paddingLeft: theme.spacing(3),
-    transition: theme.transitions.create("width"),
-    width: "100%",
-  },
-})
-
 export { HeaderSearchBar as UnconnectedHeaderSearchBar }
 
 export default withStyles(styles)(HeaderSearchBar)
-
-HeaderSearchBar.propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-}

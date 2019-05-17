@@ -5,6 +5,10 @@ import PropTypes from "prop-types"
 import { Mutation, withApollo, Query } from "react-apollo"
 import gql from "graphql-tag"
 
+interface Props {
+  id: string
+}
+
 const SAVED_ARTISTS = gql`
   {
     savedArtists @client
@@ -17,12 +21,12 @@ const TOGGLE_SAVE = gql`
   }
 `
 
-function ArtistSaveButton({ id, client }) {
+const ArtistSaveButton: React.FunctionComponent<Props> = ({ id }) => {
   const [isSaved, setIsSaved] = useState(false)
 
   return (
     <Query query={SAVED_ARTISTS}>
-      {({ loading, error, data }) => {
+      {({ data }) => {
         if (data) {
           setIsSaved(data.savedArtists.includes(id))
         }
@@ -47,11 +51,6 @@ function ArtistSaveButton({ id, client }) {
       }}
     </Query>
   )
-}
-
-ArtistSaveButton.propTypes = {
-  id: PropTypes.string.isRequired,
-  client: PropTypes.object.isRequired,
 }
 
 export default withApollo(ArtistSaveButton)

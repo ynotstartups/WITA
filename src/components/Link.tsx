@@ -9,6 +9,7 @@ class Link extends React.Component {
   }
 
   render() {
+    // @ts-ignore
     return <MuiLink component={GastsbyLink} {...this.props} />
   }
 }

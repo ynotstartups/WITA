@@ -6,13 +6,22 @@ import SEO from "../components/seo"
 import Title from "../components/Title/Title"
 import Feed from "../components/Feed/Feed"
 
-const Collection = props => {
-  const { title } = props.pageContext
+interface PageContext {
+  title: String
+}
+
+interface Props {
+  pageContext: PageContext
+  data: any
+}
+
+const Collection: React.FunctionComponent<Props> = ({ pageContext, data }) => {
+  const { title } = pageContext
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Title>{title}</Title>
-      <Feed ArtistsData={props.data.artsy.artists} />
+      <Title>{`${title}`}</Title>
+      <Feed artistsData={data.artsy.artists} />
     </Layout>
   )
 }

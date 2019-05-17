@@ -1,7 +1,6 @@
 import React from "react"
 import gql from "graphql-tag"
 import { Query } from "react-apollo"
-import PropTypes from "prop-types"
 
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner"
 import ArtistCard from "./ArtistCard"
@@ -17,7 +16,11 @@ const GET_ARTIST = gql`
   }
 `
 
-function ArtistCardWithQuery({ id }) {
+interface Props {
+  id: String
+}
+
+const ArtistCardWithQuery: React.FunctionComponent<Props> = ({ id }) => {
   return (
     <Query query={GET_ARTIST} variables={{ id }}>
       {({ loading, error, data }) => {
@@ -30,7 +33,3 @@ function ArtistCardWithQuery({ id }) {
 }
 
 export default ArtistCardWithQuery
-
-ArtistCardWithQuery.propTypes = {
-  id: PropTypes.string.isRequired,
-}

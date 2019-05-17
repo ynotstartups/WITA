@@ -1,30 +1,69 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { withTheme } from "@material-ui/core/styles"
 import GridListTileBar from "@material-ui/core/GridListTileBar"
 import OpenInNew from "@material-ui/icons/OpenInNew"
 import IconButton from "@material-ui/core/IconButton"
-import { withStyles } from "@material-ui/core/styles"
 import Tooltip from "@material-ui/core/Tooltip"
+import {
+  createStyles,
+  withStyles,
+  withTheme,
+  WithStyles,
+} from "@material-ui/styles"
 
-const cont = {
-  overflow: "hidden",
-  position: "relative",
+const styles = () =>
+  createStyles({
+    container: {
+      "&:hover $bar": {
+        visibility: "visible",
+      },
+    },
+    bar: {
+      padding: "3px 3px 3px 0",
+      visibility: "hidden",
+    },
+    button: {
+      marginVertical: 5,
+    },
+  })
+
+enum Direction {
+  column = "column",
+  row = "row",
 }
 
-const Artwork = ({
+export interface Photo {
+  src: string
+  width: number
+  height: number
+  title: string
+  href: string
+}
+
+interface Props extends WithStyles<typeof styles> {
+  top: number
+  left: number
+  direction: Direction
+  theme: any
+  photo: Photo
+}
+
+const Artwork: React.FunctionComponent<Props> = ({
   theme,
-  index,
-  onClick,
   photo,
-  margin,
   direction,
   top,
   left,
   classes,
 }) => {
+  const cont = {
+    overflow: "hidden",
+    position: "absolute" as "absolute",
+    left: 0,
+    top: 0,
+  }
+
   if (direction === "column") {
-    cont.position = "absolute"
     cont.left = left
     cont.top = top
   }
@@ -42,8 +81,6 @@ const Artwork = ({
         display: "flex",
         height: photo.height - height,
         width: photo.width - width,
-        marginVertical: height / 2,
-        marginHorizontal: width / 2,
         ...cont,
         justifyContent: "center",
       }}
@@ -80,24 +117,4 @@ const Artwork = ({
   )
 }
 
-const styles = () => ({
-  container: {
-    "&:hover $bar": {
-      visibility: "visible",
-    },
-  },
-  bar: {
-    padding: "3px 3px 3px 0",
-    visibility: "hidden",
-  },
-  button: {
-    marginVertical: 5,
-  },
-})
-
 export default withTheme(withStyles(styles)(Artwork))
-
-Artwork.propTypes = {
-  photo: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
-}
