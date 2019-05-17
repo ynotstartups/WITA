@@ -10,6 +10,8 @@ const App = () => {
     <Layout>
       <SEO title="gallery" keywords={[`artist`, `gallery`]} />
       <Router>
+        {/* 
+        // @ts-ignore */}
         <TemplateArtworkGallery path="/gallery/:id" />
       </Router>
     </Layout>

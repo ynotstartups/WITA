@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import GridListTileBar from "@material-ui/core/GridListTileBar"
 import OpenInNew from "@material-ui/icons/OpenInNew"
 import IconButton from "@material-ui/core/IconButton"

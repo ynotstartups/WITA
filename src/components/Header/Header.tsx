@@ -41,12 +41,16 @@ interface Props extends WithStyles<typeof styles> {}
 const Header: React.FunctionComponent<Props> = ({ classes }) => (
   <AppBar position="sticky" className={classes.container}>
     <Toolbar>
+      {/* 
+        // @ts-ignore */}
       <Link to="/" className={classes.link}>
         <Typography variant="h6" color="inherit" noWrap>
           Who is this artist?
         </Typography>
       </Link>
       <HeaderSearchBar />
+      {/* 
+        // @ts-ignore */}
       <Button
         component={Link}
         className={classes.noStyledLink}
@@ -55,6 +59,8 @@ const Header: React.FunctionComponent<Props> = ({ classes }) => (
       >
         Movements
       </Button>
+      {/* 
+        // @ts-ignore */}
       <Button
         component={Link}
         className={classes.noStyledLink}
