@@ -20,6 +20,9 @@ const SEARCH_ARTISTS = gql`
             id
             name
             href
+            birthday
+            deathday
+            nationality
           }
         }
       }
