@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import BackgroundImage, { IFluidObject } from "gatsby-background-image"
 
+// @ts-ignore
 import styles from "./CollectionItem.module.css"
 
 interface Props {

@@ -9,10 +9,16 @@ import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+interface Meta {
+  name?: string
+  content?: string
+  property?: string
+}
+
 interface Props {
   description?: string
   lang?: string
-  meta?: object[]
+  meta?: Meta
   keywords?: string[]
   title: string
 }
@@ -89,6 +95,7 @@ const SEO: React.FunctionComponent<Props> = ({
               }
             : []
         )
+        //@ts-ignore
         .concat(meta)}
     />
   )

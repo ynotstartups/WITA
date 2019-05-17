@@ -1,7 +1,6 @@
 import React, { useReducer } from "react"
 import gql from "graphql-tag"
 import InfiniteScroll from "react-infinite-scroller"
-import PropTypes from "prop-types"
 
 import { withApollo } from "react-apollo"
 import ArtworkGallery from "../components/ArtworkGallery/ArtworkGallery"
@@ -130,8 +129,3 @@ const PageArtistGallery: React.FunctionComponent<Props> = ({ client, id }) => {
 }
 
 export default withApollo(PageArtistGallery)
-
-PageArtistGallery.propTypes = {
-  id: PropTypes.string.isRequired,
-  client: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-}

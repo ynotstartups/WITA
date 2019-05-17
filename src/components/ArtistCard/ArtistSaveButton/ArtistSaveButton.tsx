@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import IconButton from "@material-ui/core/IconButton"
 import Favorite from "@material-ui/icons/Favorite"
-import PropTypes from "prop-types"
 import { Mutation, withApollo, Query } from "react-apollo"
 import gql from "graphql-tag"
 
