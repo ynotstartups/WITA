@@ -36,9 +36,7 @@ const TemplateSearch: React.FunctionComponent<Props> = ({ query }) => {
   return (
     <>
       <Title>{`Searching artists with name ${query}`}</Title>
-      // @ts-ignore
       <Query query={SEARCH_ARTISTS} variables={{ query }}>
-        // @ts-ignore
         {({ loading, error, data }) => {
           if (loading) return <LoadingSpinner />
           if (error) return <h1>{`Error! ${error.message}`}</h1>
