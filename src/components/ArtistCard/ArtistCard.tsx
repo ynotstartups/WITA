@@ -9,6 +9,7 @@ import CardActionArea from "@material-ui/core/CardActionArea"
 import { navigate } from "@reach/router"
 
 import ArtistSaveButton from "./ArtistSaveButton/ArtistSaveButton"
+import { formattedBio } from "./ArtistCardUtils/ArtistCardUtils"
 
 interface AnchorButtonProps {
   href: string
@@ -58,6 +59,9 @@ interface ArtistCardProps extends WithStyles<typeof styles> {
   displayLabel: string
   id: string
   href: string
+  birthday?: string
+  deathday?: string
+  nationality?: string
 }
 
 const ArtistCard: React.FunctionComponent<ArtistCardProps> = ({
@@ -66,9 +70,16 @@ const ArtistCard: React.FunctionComponent<ArtistCardProps> = ({
   id,
   href,
   classes,
+  nationality,
+  birthday,
+  deathday,
 }) => (
   <Card className={classes.card} elevation={2}>
-    <CardHeader action={<ArtistSaveButton id={id} />} title={displayLabel} />
+    <CardHeader
+      action={<ArtistSaveButton id={id} />}
+      title={displayLabel}
+      subheader={formattedBio(nationality, birthday, deathday)}
+    />
     <CardActionArea
       onClick={() => {
         navigate(`/gallery/${id}`)
