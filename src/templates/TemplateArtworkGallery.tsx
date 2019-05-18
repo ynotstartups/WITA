@@ -2,9 +2,10 @@ import React, { useReducer } from "react"
 import gql from "graphql-tag"
 import InfiniteScroll from "react-infinite-scroller"
 
-import { withApollo } from "react-apollo"
 import ArtworkGallery from "../components/ArtworkGallery/ArtworkGallery"
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner"
+import ArtistBar from "../components/ArtistBar/ArtistBar"
+import { withApollo } from "react-apollo"
 
 // https://github.com/apollographql/apollo-client/issues/2510
 // the id field below artists is not used by me but the store needs it for
@@ -117,14 +118,17 @@ const PageArtistGallery: React.FunctionComponent<Props> = ({ client, id }) => {
   }
 
   return (
-    <InfiniteScroll
-      pageStart={0}
-      loadMore={fetchPhotos}
-      hasMore={!state.ended}
-      loader={<LoadingSpinner key={0} />}
-    >
-      {state.photos.length !== 0 && <ArtworkGallery photos={state.photos} />}
-    </InfiniteScroll>
+    <>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={fetchPhotos}
+        hasMore={!state.ended}
+        loader={<LoadingSpinner key={0} />}
+      >
+        {state.photos.length !== 0 && <ArtworkGallery photos={state.photos} />}
+      </InfiniteScroll>
+      <ArtistBar />
+    </>
   )
 }
 
