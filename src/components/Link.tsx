@@ -1,6 +1,6 @@
 import React from "react"
 import MuiLink from "@material-ui/core/Link"
-import { Link as GastsbyLink } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
 
 class Link extends React.Component {
   // eslint-disable-next-line no-useless-constructor
@@ -10,7 +10,7 @@ class Link extends React.Component {
 
   render() {
     // @ts-ignore
-    return <MuiLink component={GastsbyLink} {...this.props} />
+    return <MuiLink component={GatsbyLink} {...this.props} />
   }
 }
 
