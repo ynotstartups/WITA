@@ -9,5 +9,8 @@ sudo: false
 
 jobs:
   include:
-    - script: npm test
+    - stage: "Tests"
+      script: npm test
+      name: "Unit Tests"
     - script: npm run type-check
+      name: "Type Check"
