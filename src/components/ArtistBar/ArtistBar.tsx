@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { Typography } from "@material-ui/core"
 import IconButton from "@material-ui/core/IconButton"
 import ExpandLess from "@material-ui/icons/ExpandLess"
 import classNames from "classnames/bind"
 import Divider from "@material-ui/core/Divider"
+import fetch from "isomorphic-fetch"
+import OpenInNew from "@material-ui/icons/OpenInNew"
 
 // @ts-ignore
 import styles from "./ArtistBar.module.css"
@@ -11,8 +13,16 @@ import ArtistSaveButton from "../ArtistCard/ArtistSaveButton/ArtistSaveButton"
 
 let cx = classNames.bind(styles)
 
-const ArtistBar: React.FunctionComponent = () => {
+interface Props {
+  displayLabel: String
+}
+
+const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel }) => {
   let [expanded, setExpanded] = useState(false)
+  let [description, setDescription] = useState("")
+  let [extract, setExtract] = useState("")
+  let [thumbnail, setThumbnail] = useState("")
+  let [fetched, setFetched] = useState(false)
 
   const descriptionRef = useRef(null)
 
@@ -40,21 +50,41 @@ const ArtistBar: React.FunctionComponent = () => {
     }
   }
 
+  useEffect(() => {
+    const fetchURL =
+      displayLabel !== ""
+        ? `https://en.wikipedia.org/api/rest_v1/page/summary/${displayLabel.replace(
+            / /g,
+            "_"
+          )}`
+        : ""
+
+    if (fetchURL === "" || fetched) {
+      return
+    }
+
+    fetch(fetchURL)
+      .then(response => {
+        setFetched(true)
+        return response.json()
+      })
+      .then(responseJson => {
+        setDescription(responseJson.description)
+        setExtract(responseJson.extract)
+        setThumbnail(responseJson.thumbnail.source)
+      })
+  })
+
   return (
     <div className={containerClassName}>
       <div className={styles.bar}>
         <div className={styles.info}>
-          <img
-            className={styles.avatar}
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/253px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg"
-          />
+          <img className={styles.avatar} src={thumbnail} />
           <div className={styles.details}>
             <Typography variant="h6" className={styles.name}>
-              Vincent van Gogh
+              {displayLabel}
             </Typography>
-            <Typography variant="body1">
-              Influential Dutch Post-Impressionist painter (1853–1890)
-            </Typography>
+            <Typography variant="body1">{description}</Typography>
           </div>
         </div>
 
@@ -72,16 +102,21 @@ const ArtistBar: React.FunctionComponent = () => {
 
       <div className={descriptionClassName} ref={descriptionRef}>
         <Divider className={styles.divider} />
-        <Typography variant="body1">
-          Vincent Willem van Gogh was a Dutch post-impressionist painter who is
-          among the most famous and influential figures in the history of
-          Western art. In just over a decade he created about 2,100 artworks,
-          including around 860 oil paintings, most of them in the last two years
-          of his life. They include landscapes, still lifes, portraits and
-          self-portraits, and are characterised by bold colours and dramatic,
-          impulsive and expressive brushwork that contributed to the foundations
-          of modern art. He was not commercially successful, and his suicide at
-          37 followed years of mental illness and poverty.
+        <Typography variant="body1" className={styles.extract}>
+          {extract}{" "}
+          {
+            <a
+              href={`https://en.wikipedia.org/wiki/${displayLabel.replace(
+                / /g,
+                "_"
+              )}`}
+              aria-label={`Open ${displayLabel} In Wikipedia`}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Wikipedia
+            </a>
+          }
         </Typography>
       </div>
     </div>

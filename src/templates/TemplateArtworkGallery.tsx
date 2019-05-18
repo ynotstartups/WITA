@@ -127,7 +127,7 @@ const PageArtistGallery: React.FunctionComponent<Props> = ({ client, id }) => {
       >
         {state.photos.length !== 0 && <ArtworkGallery photos={state.photos} />}
       </InfiniteScroll>
-      <ArtistBar />
+      <ArtistBar displayLabel={state.displayLabel} />
     </>
   )
 }
