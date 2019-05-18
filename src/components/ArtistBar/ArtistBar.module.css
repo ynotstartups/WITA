@@ -6,7 +6,7 @@
   background-color: white;
   box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);
   border-top: 1px solid #ebebeb;
-  padding: 10px 24px;
+  padding: 10px 24px 0;
   display: flex;
   transition: min-height 0.5s;
   flex-direction: column;
@@ -21,6 +21,8 @@
   flex: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .avatar {
@@ -66,4 +68,8 @@
 .expandIconExpanded {
   transform: rotate(-180deg);
   transition: transform 0.5s;
+}
+
+.extract {
+  margin-bottom: 10px;
 }
