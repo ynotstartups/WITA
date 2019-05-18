@@ -1,0 +1,69 @@
+.container {
+  min-height: 80px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #ebebeb;
+  padding: 10px 24px;
+  display: flex;
+  transition: min-height 0.5s;
+  flex-direction: column;
+}
+
+.containerExpanded {
+  min-height: 200px;
+  transition: min-height 0.5s;
+}
+
+.bar {
+  flex: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  line-height: 1.2;
+}
+
+.divider {
+  margin: 10px;
+}
+
+.description {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.5s;
+}
+
+.descriptionExpanded {
+  transition: height 0.5s;
+}
+
+.expandIcon {
+  transition: transform 0.5s;
+}
+
+.expandIconExpanded {
+  transform: rotate(-180deg);
+  transition: transform 0.5s;
+}
