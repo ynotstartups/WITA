@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react"
 import { Typography } from "@material-ui/core"
 import IconButton from "@material-ui/core/IconButton"
 import ExpandLess from "@material-ui/icons/ExpandLess"
+import Close from "@material-ui/icons/Close"
 import classNames from "classnames/bind"
 import Divider from "@material-ui/core/Divider"
 import fetch from "isomorphic-fetch"
@@ -23,12 +24,14 @@ const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel, id }) => {
   let [extract, setExtract] = useState("")
   let [thumbnail, setThumbnail] = useState("")
   let [fetched, setFetched] = useState(false)
+  let [closed, setClosed] = useState(false)
 
   const descriptionRef = useRef(null)
 
   let containerClassName = cx({
     container: true,
     containerExpanded: expanded,
+    closed: closed,
   })
 
   let descriptionClassName = cx({
@@ -80,7 +83,12 @@ const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel, id }) => {
   })
 
   return (
-    <div className={containerClassName}>
+    <div
+      className={containerClassName}
+      onClick={() => {
+        setExpanded(!expanded)
+      }}
+    >
       <div className={styles.bar}>
         <div className={styles.info}>
           <img className={styles.avatar} src={thumbnail || icon} />
@@ -96,10 +104,10 @@ const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel, id }) => {
           <ArtistSaveButton id={id} />
           <IconButton
             onClick={() => {
-              setExpanded(!expanded)
+              setClosed(true)
             }}
           >
-            <ExpandLess className={expandIconClassName} />
+            <Close />
           </IconButton>
         </div>
       </div>

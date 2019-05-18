@@ -34,7 +34,8 @@ const ArtistSaveButton: React.FunctionComponent<Props> = ({ id }) => {
           <Mutation mutation={TOGGLE_SAVE} variables={{ id }}>
             {toggleSave => (
               <IconButton
-                onClick={() => {
+                onClick={e => {
+                  e.stopPropagation()
                   toggleSave().then(({ data }) => {
                     // toggleSave is returned by resolver
                     // is it possible to change name
