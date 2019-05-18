@@ -6,7 +6,6 @@ import classNames from "classnames/bind"
 import Divider from "@material-ui/core/Divider"
 import fetch from "isomorphic-fetch"
 import icon from "../../images/icon.png" // Tell Webpack this JS file uses this image
-
 // @ts-ignore
 import styles from "./ArtistBar.module.css"
 import ArtistSaveButton from "../ArtistCard/ArtistSaveButton/ArtistSaveButton"
@@ -14,8 +13,8 @@ import ArtistSaveButton from "../ArtistCard/ArtistSaveButton/ArtistSaveButton"
 let cx = classNames.bind(styles)
 
 interface Props {
-  displayLabel: String
-  id: String
+  displayLabel: string
+  id: string
 }
 
 const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel, id }) => {

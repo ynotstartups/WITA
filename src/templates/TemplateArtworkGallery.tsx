@@ -39,7 +39,7 @@ interface Photo {
 
 interface Action {
   type: "append"
-  displayLabel: String
+  displayLabel: string
   ended: boolean
   photos: Photo[]
 }
@@ -55,8 +55,8 @@ interface State {
 const initialState: State = {
   photos: [] as Photo[],
   initFetchDone: false,
-  displayLabel: "" as string,
-  page: 1 as number,
+  displayLabel: "",
+  page: 1,
   ended: false,
 }
 

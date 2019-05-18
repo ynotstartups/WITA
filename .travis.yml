@@ -1,6 +1,13 @@
 language: node_js
 node_js:
-  - '10.0'
+  - "10.0"
+before_install:
+  - npm install -g typescript
 
 dist: trusty
 sudo: false
+
+jobs:
+  include:
+    - script: npm test
+    - script: npm run type-check
