@@ -35,6 +35,7 @@
 .info {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 .details {
@@ -47,6 +48,7 @@
 }
 
 .buttonContainer {
+  display: flex;
   flex-direction: column;
 }
 
