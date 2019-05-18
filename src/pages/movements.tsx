@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/Title/Title"
 import CollectionItem from "../components/CollectionItem/CollectionItem"
+import MainContent from "../components/MainContent/MainContent"
 
 // the image name need to match path name for movements
 // maybe I should add a new field with image name
@@ -34,23 +35,25 @@ const IndexPage: React.FunctionComponent<Props> = ({ data, classes }) => {
   return (
     <Layout>
       <SEO title="movements" keywords={[`artists`]} />
-      <Title>Movements</Title>
-      <div className={classes.container}>
-        <Grid container>
-          {data.allMovementsJson.edges.map(({ node }) => {
-            const { title, path } = node
-            return (
-              <Grid item xs={6} sm={4} md={3} key={title}>
-                <CollectionItem
-                  href={`/movements/${path}`}
-                  title={title}
-                  imageFluid={getImageFluid(path, data.allFile.edges)}
-                />
-              </Grid>
-            )
-          })}
-        </Grid>
-      </div>
+      <MainContent>
+        <Title>Movements</Title>
+        <div className={classes.container}>
+          <Grid container>
+            {data.allMovementsJson.edges.map(({ node }) => {
+              const { title, path } = node
+              return (
+                <Grid item xs={6} sm={4} md={3} key={title}>
+                  <CollectionItem
+                    href={`/movements/${path}`}
+                    title={title}
+                    imageFluid={getImageFluid(path, data.allFile.edges)}
+                  />
+                </Grid>
+              )
+            })}
+          </Grid>
+        </div>
+      </MainContent>
     </Layout>
   )
 }

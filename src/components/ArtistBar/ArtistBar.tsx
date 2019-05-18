@@ -5,7 +5,7 @@ import ExpandLess from "@material-ui/icons/ExpandLess"
 import classNames from "classnames/bind"
 import Divider from "@material-ui/core/Divider"
 import fetch from "isomorphic-fetch"
-import OpenInNew from "@material-ui/icons/OpenInNew"
+import icon from "../../images/icon.png" // Tell Webpack this JS file uses this image
 
 // @ts-ignore
 import styles from "./ArtistBar.module.css"
@@ -69,9 +69,13 @@ const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel }) => {
         return response.json()
       })
       .then(responseJson => {
-        setDescription(responseJson.description)
-        setExtract(responseJson.extract)
-        setThumbnail(responseJson.thumbnail.source)
+        try {
+          setDescription(responseJson.description)
+          setExtract(responseJson.extract)
+          setThumbnail(responseJson.thumbnail.source)
+        } catch (e) {
+          console.error(e)
+        }
       })
   })
 
@@ -79,7 +83,7 @@ const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel }) => {
     <div className={containerClassName}>
       <div className={styles.bar}>
         <div className={styles.info}>
-          <img className={styles.avatar} src={thumbnail} />
+          <img className={styles.avatar} src={thumbnail || icon} />
           <div className={styles.details}>
             <Typography variant="h6" className={styles.name}>
               {displayLabel}
@@ -88,7 +92,7 @@ const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel }) => {
           </div>
         </div>
 
-        <div>
+        <div className={styles.buttonContainer}>
           <ArtistSaveButton id={"andy-warhol"} />
           <IconButton
             onClick={() => {

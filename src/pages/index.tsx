@@ -4,14 +4,15 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SavedArtists from "../components/SavedArtists/SavedArtists"
-
-// TODO patch ./node_modules/graphql/utilities/assertValidName.js
+import MainContent from "../components/MainContent/MainContent"
 
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`WhoIsThisArtist`]} />
-      <SavedArtists />
+      <MainContent>
+        <SavedArtists />
+      </MainContent>
     </Layout>
   )
 }

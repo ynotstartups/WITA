@@ -4,6 +4,7 @@ import { Router } from "@reach/router"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TemplateArtworkGallery from "../templates/TemplateArtworkGallery"
+import MainContent from "../components/MainContent/MainContent"
 
 const App = () => {
   return (

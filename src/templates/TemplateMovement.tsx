@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/Title/Title"
 import Feed from "../components/Feed/Feed"
+import MainContent from "../components/MainContent/MainContent"
 
 interface PageContext {
   title: String
@@ -21,7 +22,9 @@ const Collection: React.FunctionComponent<Props> = ({ pageContext, data }) => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <Title>{`${title}`}</Title>
-      <Feed artistsData={data.artsy.artists} />
+      <MainContent>
+        <Feed artistsData={data.artsy.artists} />
+      </MainContent>
     </Layout>
   )
 }
