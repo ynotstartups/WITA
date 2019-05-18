@@ -56,6 +56,7 @@ module.exports = {
       options: {
         analyzerPort: 3000,
         production: false,
+        analyzerMode: "disabled",
       },
     },
     `gatsby-plugin-typescript`,

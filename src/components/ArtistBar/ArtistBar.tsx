@@ -15,9 +15,10 @@ let cx = classNames.bind(styles)
 
 interface Props {
   displayLabel: String
+  id: String
 }
 
-const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel }) => {
+const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel, id }) => {
   let [expanded, setExpanded] = useState(false)
   let [description, setDescription] = useState("")
   let [extract, setExtract] = useState("")
@@ -93,7 +94,7 @@ const ArtistBar: React.FunctionComponent<Props> = ({ displayLabel }) => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <ArtistSaveButton id={"andy-warhol"} />
+          <ArtistSaveButton id={id} />
           <IconButton
             onClick={() => {
               setExpanded(!expanded)

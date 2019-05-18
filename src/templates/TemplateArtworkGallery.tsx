@@ -132,7 +132,7 @@ const PageArtistGallery: React.FunctionComponent<Props> = ({ client, id }) => {
           )}
         </InfiniteScroll>
       </MainContent>
-      <ArtistBar displayLabel={state.displayLabel} />
+      <ArtistBar displayLabel={state.displayLabel} id={id} />
     </>
   )
 }
