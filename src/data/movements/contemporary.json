@@ -3,17 +3,17 @@
   "path": "contemporary",
   "image": "https://d32dm0rphc51dk.cloudfront.net/LhBAOJMcBze7_OiXbWHd_A/large.jpg",
   "artists": [
-    "jean-michel-basquiat",
-    "yayoi-kusama",
-    "damien-hirst",
-    "jeff-koons",
-    "yoko-ono",
-    "keith-haring",
-    "gerhard-richter",
-    "takashi-murakami",
-    "marina-abramovic-1",
-    "louise-bourgeois",
-    "jenny-saville",
-    "olafur-eliasson"
+    { "imageUrl": "", "name": "jean-michel-basquiat" },
+    { "imageUrl": "", "name": "yayoi-kusama" },
+    { "imageUrl": "", "name": "damien-hirst" },
+    { "imageUrl": "", "name": "jeff-koons" },
+    { "imageUrl": "", "name": "yoko-ono" },
+    { "imageUrl": "", "name": "keith-haring" },
+    { "imageUrl": "", "name": "gerhard-richter" },
+    { "imageUrl": "", "name": "takashi-murakami" },
+    { "imageUrl": "", "name": "marina-abramovic-1" },
+    { "imageUrl": "", "name": "louise-bourgeois" },
+    { "imageUrl": "", "name": "jenny-saville" },
+    { "imageUrl": "", "name": "olafur-eliasson" }
   ]
 }

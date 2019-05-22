@@ -3,17 +3,17 @@
   "path": "realism",
   "image": "https://d32dm0rphc51dk.cloudfront.net/v6i7REwA4qDfPq_WSWCu7A/large.jpg",
   "artists": [
-    "gustave-courbet",
-    "edouard-manet",
-    "jean-francois-millet",
-    "william-adolphe-bouguereau",
-    "edward-hopper",
-    "attributed-to-ilya-repin",
-    "jean-baptiste-camille-corot",
-    "honore-daumier",
-    "john-constable",
-    "ivan-shishkin",
-    "gerhard-richter",
-    "winslow-homer"
+    { "imageUrl": "", "name": "gustave-courbet" },
+    { "imageUrl": "", "name": "edouard-manet" },
+    { "imageUrl": "", "name": "jean-francois-millet" },
+    { "imageUrl": "", "name": "william-adolphe-bouguereau" },
+    { "imageUrl": "", "name": "edward-hopper" },
+    { "imageUrl": "", "name": "attributed-to-ilya-repin" },
+    { "imageUrl": "", "name": "jean-baptiste-camille-corot" },
+    { "imageUrl": "", "name": "honore-daumier" },
+    { "imageUrl": "", "name": "john-constable" },
+    { "imageUrl": "", "name": "ivan-shishkin" },
+    { "imageUrl": "", "name": "gerhard-richter" },
+    { "imageUrl": "", "name": "winslow-homer" }
   ]
 }

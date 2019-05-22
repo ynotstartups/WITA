@@ -3,17 +3,17 @@
   "path": "ukiyo-e",
   "image": "https://d32dm0rphc51dk.cloudfront.net/BM-ndYlv2hBT5YDcEcmPVg/large.jpg",
   "artists": [
-    "katsushika-hokusai",
-    "utagawa-kuniyoshi",
-    "kitagawa-utamaro",
-    "tsukioka-yoshitoshi",
-    "utagawa-kunisada",
-    "suzuki-harunobu",
-    "utagawa-toyokuni-i",
-    "hishikawa-moronobu",
-    "keisai-eisen",
-    "torii-kiyonaga",
-    "toyohara-chikanobu",
-    "toyohara-kunichika"
+    { "imageUrl": "", "name": "katsushika-hokusai" },
+    { "imageUrl": "", "name": "utagawa-kuniyoshi" },
+    { "imageUrl": "", "name": "kitagawa-utamaro" },
+    { "imageUrl": "", "name": "tsukioka-yoshitoshi" },
+    { "imageUrl": "", "name": "utagawa-kunisada" },
+    { "imageUrl": "", "name": "suzuki-harunobu" },
+    { "imageUrl": "", "name": "utagawa-toyokuni-i" },
+    { "imageUrl": "", "name": "hishikawa-moronobu" },
+    { "imageUrl": "", "name": "keisai-eisen" },
+    { "imageUrl": "", "name": "torii-kiyonaga" },
+    { "imageUrl": "", "name": "toyohara-chikanobu" },
+    { "imageUrl": "", "name": "toyohara-kunichika" }
   ]
 }

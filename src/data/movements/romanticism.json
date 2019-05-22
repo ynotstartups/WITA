@@ -3,17 +3,17 @@
   "path": "romanticism",
   "image": "https://d32dm0rphc51dk.cloudfront.net/dJCFrPhuikHpcjELtngBRA/large.jpg",
   "artists": [
-    "william-blake",
-    "francisco-de-goya",
-    "eugene-delacroix",
-    "caspar-david-friedrich",
-    "j-m-w-turner",
-    "theodore-gericault",
-    "john-constable",
-    "henry-fuseli",
-    "ivan-konstantinovich-aivazovsky",
-    "francesco-hayez",
-    "gustave-dore",
-    "jean-baptiste-camille-corot"
+    { "imageUrl": "", "name": "william-blake" },
+    { "imageUrl": "", "name": "francisco-de-goya" },
+    { "imageUrl": "", "name": "eugene-delacroix" },
+    { "imageUrl": "", "name": "caspar-david-friedrich" },
+    { "imageUrl": "", "name": "j-m-w-turner" },
+    { "imageUrl": "", "name": "theodore-gericault" },
+    { "imageUrl": "", "name": "john-constable" },
+    { "imageUrl": "", "name": "henry-fuseli" },
+    { "imageUrl": "", "name": "ivan-konstantinovich-aivazovsky" },
+    { "imageUrl": "", "name": "francesco-hayez" },
+    { "imageUrl": "", "name": "gustave-dore" },
+    { "imageUrl": "", "name": "jean-baptiste-camille-corot" }
   ]
 }

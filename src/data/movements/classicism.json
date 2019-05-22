@@ -3,17 +3,17 @@
   "path": "classicism",
   "image": "https://d32dm0rphc51dk.cloudfront.net/Rs_nqF62hpntEnqm9kzJKQ/large.jpg",
   "artists": [
-    "nicolas-poussin",
-    "annibale-carracci-1",
-    "anne-louis-girodet-trioson",
-    "etienne-maurice-falconet",
-    "jakob-philipp-hackert",
-    "allan-ramsay",
-    "jacques-stella",
-    "john-flaxman",
-    "friedrich-heinrich-fuger",
-    "laurent-de-la-hyre",
-    "nicolai-abildgaard",
-    "thomas-richard-williams"
+    { "imageUrl": "", "name": "nicolas-poussin" },
+    { "imageUrl": "", "name": "annibale-carracci-1" },
+    { "imageUrl": "", "name": "anne-louis-girodet-trioson" },
+    { "imageUrl": "", "name": "etienne-maurice-falconet" },
+    { "imageUrl": "", "name": "jakob-philipp-hackert" },
+    { "imageUrl": "", "name": "allan-ramsay" },
+    { "imageUrl": "", "name": "jacques-stella" },
+    { "imageUrl": "", "name": "john-flaxman" },
+    { "imageUrl": "", "name": "friedrich-heinrich-fuger" },
+    { "imageUrl": "", "name": "laurent-de-la-hyre" },
+    { "imageUrl": "", "name": "nicolai-abildgaard" },
+    { "imageUrl": "", "name": "thomas-richard-williams" }
   ]
 }

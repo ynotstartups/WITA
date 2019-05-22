@@ -3,17 +3,38 @@
   "path": "pointillism",
   "image": "https://d32dm0rphc51dk.cloudfront.net/sSN2noKSmg-HI7X1cGa-Jw/large.jpg",
   "artists": [
-    "georges-seurat",
-    "vincent-van-gogh",
-    "paul-signac",
-    "henri-edmond-cross",
-    "maximilien-luce",
-    "georges-morren",
-    "chuck-close",
-    "henri-delavallee",
-    "albert-dubois-pillet",
-    "georges-lemmen",
-    "camille-pissarro",
-    "theo-van-rysselberghe"
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/sSN2noKSmg-HI7X1cGa-Jw/larger.jpg",
+      "name": "georges-seurat"
+    },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/AWZqm_m_888YpjzTdjlvRQ/tall.jpg",
+      "name": "vincent-van-gogh"
+    },
+    { "imageUrl": "", "name": "paul-signac" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/Xxzdp_CNoLDaSVSB-qBQTg/tall.jpg",
+      "name": "henri-edmond-cross"
+    },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/ofkM6Mzjw4C0ZUC61AEyEg/larger.jpg",
+      "name": "maximilien-luce"
+    },
+    { "imageUrl": "", "name": "georges-morren" },
+    { "imageUrl": "", "name": "chuck-close" },
+    { "imageUrl": "", "name": "henri-delavallee" },
+    { "imageUrl": "", "name": "albert-dubois-pillet" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/zosgJLy6vxflIS2bTp9w4w/tall.jpg",
+      "name": "georges-lemmen"
+    },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/BJj1ci5UCvH6c8CpZNrzbg/tall.jpg",
+      "name": "camille-pissarro"
+    },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/Yb5E2uni4e7oEAmIpNO9kg/medium.jpg",
+      "name": "theo-van-rysselberghe"
+    }
   ]
 }

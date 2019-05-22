@@ -3,17 +3,17 @@
   "path": "impressionism",
   "image": "https://d32dm0rphc51dk.cloudfront.net/UTYZ9NKIQ1o0rxSY5XcA0Q/large.jpg",
   "artists": [
-    "claude-monet",
-    "pierre-auguste-renoir",
-    "edouard-manet",
-    "edgar-degas",
-    "paul-cezanne",
-    "henri-matisse",
-    "camille-pissarro",
-    "paul-gauguin",
-    "mary-cassatt",
-    "berthe-morisot",
-    "auguste-rodin",
-    "alfred-sisley"
+    { "imageUrl": "", "name": "claude-monet" },
+    { "imageUrl": "", "name": "pierre-auguste-renoir" },
+    { "imageUrl": "", "name": "edouard-manet" },
+    { "imageUrl": "", "name": "edgar-degas" },
+    { "imageUrl": "", "name": "paul-cezanne" },
+    { "imageUrl": "", "name": "henri-matisse" },
+    { "imageUrl": "", "name": "camille-pissarro" },
+    { "imageUrl": "", "name": "paul-gauguin" },
+    { "imageUrl": "", "name": "mary-cassatt" },
+    { "imageUrl": "", "name": "berthe-morisot" },
+    { "imageUrl": "", "name": "auguste-rodin" },
+    { "imageUrl": "", "name": "alfred-sisley" }
   ]
 }

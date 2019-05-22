@@ -2,21 +2,24 @@
   "title": "Street Art",
   "path": "street-art",
   "artists": [
-    "banksy",
-    "vhils",
-    "tavar-zawacki-aka-above",
-    "roa",
-    "c215",
-    "hyuro",
-    "titi-freak",
-    "spy",
-    "lucia-laguna",
-    "blu",
-    "justin-bettman",
-    "henry-chalfant",
-    "peter-daverington",
-    "ella-and-pitr",
-    "faile",
-    "shepard-fairey"
+    { "imageUrl": "", "name": "banksy" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/ZWFvAN1l64cP8XoEtRb0PQ/larger.jpg",
+      "name": "vhils"
+    },
+    { "imageUrl": "", "name": "tavar-zawacki-aka-above" },
+    { "imageUrl": "", "name": "roa" },
+    { "imageUrl": "", "name": "c215" },
+    { "imageUrl": "", "name": "hyuro" },
+    { "imageUrl": "", "name": "titi-freak" },
+    { "imageUrl": "", "name": "spy" },
+    { "imageUrl": "", "name": "lucia-laguna" },
+    { "imageUrl": "", "name": "blu" },
+    { "imageUrl": "", "name": "justin-bettman" },
+    { "imageUrl": "", "name": "henry-chalfant" },
+    { "imageUrl": "", "name": "peter-daverington" },
+    { "imageUrl": "", "name": "ella-and-pitr" },
+    { "imageUrl": "", "name": "faile" },
+    { "imageUrl": "", "name": "shepard-fairey" }
   ]
 }
