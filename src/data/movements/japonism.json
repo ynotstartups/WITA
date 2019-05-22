@@ -2,25 +2,46 @@
   "title": "Japonism",
   "path": "japonism",
   "artists": [
-    "james-jacques-joseph-tissot",
-    "james-abbott-mcneill-whistler",
-    "edouard-manet",
-    "claude-monet",
-    "vincent-van-gogh",
-    "edgar-degas",
-    "pierre-auguste-renoir",
-    "camille-pissarro",
-    "paul-gauguin",
-    "henri-de-toulouse-lautrec",
-    "mary-cassatt",
-    "bertha-lum",
-    "william-bradley",
-    "aubrey-beardsley",
-    "arthur-wesley-dow",
-    "alphonse-mucha",
-    "gustav-klimt",
-    "pierre-bonnard",
-    "frank-lloyd-wright",
-    "charles-rennie-mackintosh"
+    {
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/James_Tissot_-_La_Japonaise_au_bain.jpg/800px-James_Tissot_-_La_Japonaise_au_bain.jpg",
+      "name": "james-jacques-joseph-tissot"
+    },
+    {
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/James_McNeill_Whistler_-_La_Princesse_du_pays_de_la_porcelaine_-_brighter.jpg/800px-James_McNeill_Whistler_-_La_Princesse_du_pays_de_la_porcelaine_-_brighter.jpg",
+      "name": "james-abbott-mcneill-whistler"
+    },
+    {
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Edouard_Manet_049.jpg/1024px-Edouard_Manet_049.jpg",
+      "name": "edouard-manet"
+    },
+    {
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/99/Claude_Monet-Madame_Monet_en_costume_japonais.jpg",
+      "name": "claude-monet"
+    },
+    {
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Van_Gogh_-_la_courtisane.jpg/800px-Van_Gogh_-_la_courtisane.jpg",
+      "name": "vincent-van-gogh"
+    },
+    {
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Brooklyn_Museum_-_Mary_Cassatt_at_the_Louvre_The_Etruscan_Gallery_-_Edgar_Degas.jpg",
+      "name": "edgar-degas"
+    },
+    { "imageUrl": "", "name": "pierre-auguste-renoir" },
+    { "imageUrl": "", "name": "camille-pissarro" },
+    { "imageUrl": "", "name": "paul-gauguin" },
+    { "imageUrl": "", "name": "henri-de-toulouse-lautrec" },
+    { "imageUrl": "", "name": "mary-cassatt" },
+    { "imageUrl": "", "name": "bertha-lum" },
+    { "imageUrl": "", "name": "william-bradley" },
+    { "imageUrl": "", "name": "aubrey-beardsley" },
+    { "imageUrl": "", "name": "arthur-wesley-dow" },
+    { "imageUrl": "", "name": "alphonse-mucha" },
+    {
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Gustav_Klimt_047.jpg/800px-Gustav_Klimt_047.jpg",
+      "name": "gustav-klimt"
+    },
+    { "imageUrl": "", "name": "pierre-bonnard" },
+    { "imageUrl": "", "name": "frank-lloyd-wright" },
+    { "imageUrl": "", "name": "charles-rennie-mackintosh" }
   ]
 }

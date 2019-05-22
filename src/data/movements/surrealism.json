@@ -3,17 +3,20 @@
   "path": "surrealism",
   "image": "https://d32dm0rphc51dk.cloudfront.net/nUu8r2Fn3HnMHdbBfnN-Qw/large.jpg",
   "artists": [
-    "salvador-dali",
-    "pablo-picasso",
-    "rene-magritte",
-    "frida-kahlo",
-    "andre-breton",
-    "joan-miro",
-    "max-ernst",
-    "man-ray",
-    "marcel-duchamp",
-    "giorgio-de-chirico",
-    "marc-chagall",
-    "paul-klee"
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/E0TteNp9GKkJn6JacrilBw/larger.jpg",
+      "name": "salvador-dali"
+    },
+    { "imageUrl": "", "name": "pablo-picasso" },
+    { "imageUrl": "", "name": "rene-magritte" },
+    { "imageUrl": "", "name": "frida-kahlo" },
+    { "imageUrl": "", "name": "andre-breton" },
+    { "imageUrl": "", "name": "joan-miro" },
+    { "imageUrl": "", "name": "max-ernst" },
+    { "imageUrl": "", "name": "man-ray" },
+    { "imageUrl": "", "name": "marcel-duchamp" },
+    { "imageUrl": "", "name": "giorgio-de-chirico" },
+    { "imageUrl": "", "name": "marc-chagall" },
+    { "imageUrl": "", "name": "paul-klee" }
   ]
 }

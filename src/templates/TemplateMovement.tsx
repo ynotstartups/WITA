@@ -8,7 +8,8 @@ import Feed from "../components/Feed/Feed"
 import MainContent from "../components/MainContent/MainContent"
 
 interface PageContext {
-  title: String
+  title: string
+  artistsNameImageMap: object
 }
 
 interface Props {
@@ -17,13 +18,22 @@ interface Props {
 }
 
 const Collection: React.FunctionComponent<Props> = ({ pageContext, data }) => {
+  const artistsNameImageMap = pageContext.artistsNameImageMap
+  const artists = data.artsy.artists.map(artist => {
+    const givenImageUrl = artistsNameImageMap[artist.id]
+    if (givenImageUrl !== "") {
+      artist.imageUrl = givenImageUrl
+    }
+    return artist
+  })
+
   const { title } = pageContext
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <Title>{`${title}`}</Title>
       <MainContent>
-        <Feed artistsData={data.artsy.artists} />
+        <Title>{`${title}`}</Title>
+        <Feed artistsData={artists} />
       </MainContent>
     </Layout>
   )
@@ -32,9 +42,9 @@ const Collection: React.FunctionComponent<Props> = ({ pageContext, data }) => {
 export default Collection
 
 export const query = graphql`
-  query($artists: [String!]) {
+  query($artistsName: [String!]) {
     artsy {
-      artists(slugs: $artists) {
+      artists(slugs: $artistsName) {
         id
         displayLabel
         href

@@ -3,21 +3,30 @@
   "path": "pop",
   "image": "https://d32dm0rphc51dk.cloudfront.net/za953RpechPx1F2oQ8EjDw/large.jpg",
   "artists": [
-    "andy-warhol",
-    "claes-oldenburg",
-    "david-hockney",
-    "james-rosenquist",
-    "jasper-johns",
-    "julian-opie",
-    "keith-haring",
-    "peter-blake",
-    "richard-hamilton",
-    "robert-indiana",
-    "robert-rauschenberg",
-    "roy-lichtenstein",
-    "takashi-murakami",
-    "tom-wesselmann",
-    "wayne-thiebaud",
-    "yayoi-kusama"
+    { "imageUrl": "", "name": "andy-warhol" },
+    { "imageUrl": "", "name": "claes-oldenburg" },
+    { "imageUrl": "", "name": "david-hockney" },
+    { "imageUrl": "", "name": "james-rosenquist" },
+    { "imageUrl": "", "name": "jasper-johns" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/Slc1Uvk6VKtlsNQYvtFaRQ/larger.jpg",
+      "name": "julian-opie"
+    },
+    { "imageUrl": "", "name": "keith-haring" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/OjdlfnHEsKtYz9OMz1npHg/tall.jpg",
+      "name": "peter-blake"
+    },
+    { "imageUrl": "", "name": "richard-hamilton" },
+    { "imageUrl": "", "name": "robert-indiana" },
+    { "imageUrl": "", "name": "robert-rauschenberg" },
+    { "imageUrl": "", "name": "roy-lichtenstein" },
+    { "imageUrl": "", "name": "takashi-murakami" },
+    { "imageUrl": "", "name": "tom-wesselmann" },
+    { "imageUrl": "", "name": "wayne-thiebaud" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/p3tVWJ6weB7i9VzNDmYsYA/tall.jpg",
+      "name": "yayoi-kusama"
+    }
   ]
 }

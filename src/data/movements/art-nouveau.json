@@ -3,17 +3,17 @@
   "path": "art-nouvean",
   "image": "https://d32dm0rphc51dk.cloudfront.net/NOpIAwQa-3r51Cg9qXKbfA/large.jpg",
   "artists": [
-    "alphonse-mucha",
-    "gustav-klimt",
-    "antoni-gaudi",
-    "charles-rennie-mackintosh",
-    "hector-guimard",
-    "aubrey-beardsley",
-    "louis-comfort-tiffany",
-    "victor-horta",
-    "emile-galle",
-    "rene-lalique",
-    "henry-van-de-velde",
-    "georg-jensen"
+    { "imageUrl": "", "name": "alphonse-mucha" },
+    { "imageUrl": "", "name": "gustav-klimt" },
+    { "imageUrl": "", "name": "antoni-gaudi" },
+    { "imageUrl": "", "name": "charles-rennie-mackintosh" },
+    { "imageUrl": "", "name": "hector-guimard" },
+    { "imageUrl": "", "name": "aubrey-beardsley" },
+    { "imageUrl": "", "name": "louis-comfort-tiffany" },
+    { "imageUrl": "", "name": "victor-horta" },
+    { "imageUrl": "", "name": "emile-galle" },
+    { "imageUrl": "", "name": "rene-lalique" },
+    { "imageUrl": "", "name": "henry-van-de-velde" },
+    { "imageUrl": "", "name": "georg-jensen" }
   ]
 }

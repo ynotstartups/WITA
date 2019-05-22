@@ -3,17 +3,17 @@
   "path": "neoclassicism",
   "image": "https://d32dm0rphc51dk.cloudfront.net/z018v3OZ4qzTxrxVpC6ENA/large.jpg",
   "artists": [
-    "jacques-louis-david",
-    "antonio-canova",
-    "jean-auguste-dominique-ingres",
-    "william-adolphe-bouguereau",
-    "elisabeth-louise-vigee-le-brun",
-    "anton-raphael-mengs",
-    "lord-frederic-leighton",
-    "angelica-kauffmann",
-    "giovanni-battista-piranesi",
-    "francesco-hayez",
-    "jean-baptiste-greuze",
-    "john-william-godward"
+    { "imageUrl": "", "name": "jacques-louis-david" },
+    { "imageUrl": "", "name": "antonio-canova" },
+    { "imageUrl": "", "name": "jean-auguste-dominique-ingres" },
+    { "imageUrl": "", "name": "william-adolphe-bouguereau" },
+    { "imageUrl": "", "name": "elisabeth-louise-vigee-le-brun" },
+    { "imageUrl": "", "name": "anton-raphael-mengs" },
+    { "imageUrl": "", "name": "lord-frederic-leighton" },
+    { "imageUrl": "", "name": "angelica-kauffmann" },
+    { "imageUrl": "", "name": "giovanni-battista-piranesi" },
+    { "imageUrl": "", "name": "francesco-hayez" },
+    { "imageUrl": "", "name": "jean-baptiste-greuze" },
+    { "imageUrl": "", "name": "john-william-godward" }
   ]
 }
