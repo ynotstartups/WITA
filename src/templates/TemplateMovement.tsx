@@ -30,7 +30,7 @@ const Collection: React.FunctionComponent<Props> = ({ pageContext, data }) => {
   const { title } = pageContext
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title={title} keywords={[`gatsby`, `application`, `react`]} />
       <MainContent>
         <Title>{`${title}`}</Title>
         <Feed artistsData={artists} />

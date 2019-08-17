@@ -1,7 +1,6 @@
 {
   "title": "Ukiyo-e",
   "path": "ukiyo-e",
-  "image": "https://d32dm0rphc51dk.cloudfront.net/BM-ndYlv2hBT5YDcEcmPVg/large.jpg",
   "artists": [
     { "imageUrl": "", "name": "katsushika-hokusai" },
     { "imageUrl": "", "name": "utagawa-kuniyoshi" },
