@@ -2,7 +2,10 @@
   "title": "Symbolism",
   "path": "symbolism",
   "artists": [
-    { "imageUrl": "", "name": "gustav-klimt" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/Qkf5Lhia3rq3PzYFfK3uLQ/tall.jpg",
+      "name": "gustav-klimt"
+    },
     { "imageUrl": "", "name": "pablo-picasso" },
     { "imageUrl": "", "name": "paul-gauguin" },
     { "imageUrl": "", "name": "edvard-munch" },
