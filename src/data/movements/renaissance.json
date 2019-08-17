@@ -1,7 +1,6 @@
 {
   "title": "Renaissance",
   "path": "renaissance",
-  "image": "https://d32dm0rphc51dk.cloudfront.net/qGR1BhRo8VxEu7JLHE7HDA/large.jpg",
   "artists": [
     { "imageUrl": "", "name": "michelangelo-buonarroti" },
     { "imageUrl": "", "name": "raphael" },

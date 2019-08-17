@@ -1,7 +1,6 @@
 {
   "title": "Impressionism",
   "path": "impressionism",
-  "image": "https://d32dm0rphc51dk.cloudfront.net/UTYZ9NKIQ1o0rxSY5XcA0Q/large.jpg",
   "artists": [
     { "imageUrl": "", "name": "claude-monet" },
     { "imageUrl": "", "name": "pierre-auguste-renoir" },

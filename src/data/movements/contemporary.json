@@ -1,7 +1,6 @@
 {
   "title": "Contemporary Art",
   "path": "contemporary",
-  "image": "https://d32dm0rphc51dk.cloudfront.net/LhBAOJMcBze7_OiXbWHd_A/large.jpg",
   "artists": [
     { "imageUrl": "", "name": "jean-michel-basquiat" },
     { "imageUrl": "", "name": "yayoi-kusama" },

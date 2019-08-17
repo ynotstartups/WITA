@@ -1,0 +1,30 @@
+{
+  "title": "Abstract Expressionism",
+  "path": "abstract-expressionism",
+  "artists": [
+    { "imageUrl": "", "name": "jackson-pollock" },
+    { "imageUrl": "", "name": "mark-rothko" },
+    { "imageUrl": "", "name": "willem-de-kooning" },
+    { "imageUrl": "", "name": "roy-lichtenstein" },
+    { "imageUrl": "", "name": "robert-rauschenberg" },
+    { "imageUrl": "", "name": "franz-kline" },
+    { "imageUrl": "", "name": "robert-motherwell" },
+    { "imageUrl": "", "name": "cy-twombly" },
+    { "imageUrl": "", "name": "helen-frankenthaler" },
+    { "imageUrl": "", "name": "barnett-newman" },
+    { "imageUrl": "", "name": "joan-mitchell" },
+    { "imageUrl": "", "name": "frank-stella" },
+    { "imageUrl": "", "name": "lee-krasner" },
+    { "imageUrl": "", "name": "richard-diebenkorn" },
+    { "imageUrl": "", "name": "hans-hofmann" },
+    { "imageUrl": "", "name": "arshile-gorky" },
+    { "imageUrl": "", "name": "clyfford-still" },
+    { "imageUrl": "", "name": "antoni-tapies" },
+    { "imageUrl": "", "name": "agnes-martin" },
+    { "imageUrl": "", "name": "philip-guston" },
+    { "imageUrl": "", "name": "ad-reinhardt" },
+    { "imageUrl": "", "name": "sam-francis" },
+    { "imageUrl": "", "name": "adolph-gottlieb" },
+    { "imageUrl": "", "name": "david-smith" }
+  ]
+}

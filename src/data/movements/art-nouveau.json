@@ -1,7 +1,6 @@
 {
   "title": "Art Nouveau",
   "path": "art-nouvean",
-  "image": "https://d32dm0rphc51dk.cloudfront.net/NOpIAwQa-3r51Cg9qXKbfA/large.jpg",
   "artists": [
     { "imageUrl": "", "name": "alphonse-mucha" },
     { "imageUrl": "", "name": "gustav-klimt" },

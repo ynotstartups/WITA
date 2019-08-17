@@ -30,7 +30,6 @@ exports.createPages = ({ graphql, actions }) => {
                 imageUrl
               }
               path
-              image
             }
           }
         }
@@ -44,7 +43,7 @@ exports.createPages = ({ graphql, actions }) => {
     // Create image post pages.
     const templateMovement = path.resolve(`src/templates/TemplateMovement.tsx`)
     result.data.allMovementsJson.edges.forEach(edge => {
-      const { artists, title, path, image } = edge.node
+      const { artists, title, path } = edge.node
       let artistsName = artists.map(artist => artist.name)
       let artistsNameImageMap = artists.reduce((dict, artist) => {
         dict[artist.name] = artist.imageUrl
@@ -57,7 +56,6 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           title,
           artistsNameImageMap,
-          image,
           artistsName,
         },
       })
