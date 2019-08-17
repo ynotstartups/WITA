@@ -8,7 +8,10 @@
       "name": "salvador-dali"
     },
     { "imageUrl": "", "name": "pablo-picasso" },
-    { "imageUrl": "", "name": "rene-magritte" },
+    {
+      "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/PSqpmp_K7MjSUSrtrz1Tbw/tall.jpg",
+      "name": "rene-magritte"
+    },
     { "imageUrl": "", "name": "frida-kahlo" },
     { "imageUrl": "", "name": "andre-breton" },
     { "imageUrl": "", "name": "joan-miro" },
