@@ -1,7 +1,5 @@
 ### What is this artist?
 
-https://whoisthisartist.com/
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5ad551ed-1979-4104-a11a-599aed49d039/deploy-status)](https://app.netlify.com/sites/whoisthisartist/deploys)
 
 An utility tool for quick reference to artists and save for later
